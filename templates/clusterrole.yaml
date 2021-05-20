@@ -1,0 +1,15 @@
+{{- if .Values.openshift.scc.enabled -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: system:openshift:scc:{{ template "apache-nifi.fullname" . }}-scc
+rules:
+- apiGroups:
+  - security.openshift.io
+  resourceNames:
+  - {{ template "apache-nifi.fullname" . }}-scc
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - use
+{{- end }}

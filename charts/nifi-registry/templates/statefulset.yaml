@@ -1,0 +1,113 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "nifi-registry.fullname" . }}
+  labels:
+    {{- include "nifi-registry.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "nifi-registry.selectorLabels" . | nindent 6 }}
+  serviceName: {{ include "nifi-registry.fullname" . }}
+  template:
+    metadata:
+    {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      labels:
+        {{- include "nifi-registry.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "nifi-registry.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: take-data-dir-ownership
+          image: alpine:3.6
+          command:
+            - sh
+            - -c
+            - |
+              cd tree
+              [ -d nifi-registry-current/database ] || mkdir -p nifi-registry-current/database
+              [ -d nifi-registry-current/flow_storage ] || mkdir -p nifi-registry-current/flow_storage
+              chown -R 1000:1000 nifi-registry-current/database nifi-registry-current/flow_storage
+          {{- if .Values.persistence.enabled }}
+          volumeMounts:
+            - name: "databaseflow-storage"
+              mountPath: /tree
+          {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - bash
+            - -ce
+            - |
+              if ! test -f /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db; then
+                cp /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db.temp /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db
+              fi
+              ${NIFI_REGISTRY_BASE_DIR}/scripts/start.sh
+          ports:
+            - name: http
+              containerPort: 18080
+              protocol: TCP
+          volumeMounts:
+            {{ if .Values.persistence.enabled }}
+            - name: "databaseflow-storage"
+              mountPath: /opt/nifi-registry/nifi-registry-current/database
+              subPath: nifi-registry-current/database
+            - name: "databaseflow-storage"
+              mountPath: /opt/nifi-registry/nifi-registry-current/flow_storage
+              subPath: nifi-registry-current/flow_storage
+            {{- end }}
+            - name: "default-database"
+              mountPath: /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db.temp
+              subPath: "nifi-registry-primary.mv.db.temp"
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      volumes:
+        - name: "default-database"
+          secret:
+            secretName: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "default-database"
+                path: "nifi-registry-primary.mv.db.temp"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  {{- if .Values.persistence.enabled }}
+  volumeClaimTemplates:
+  - metadata:
+      name: databaseflow-storage
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      {{- if .Values.persistence.databaseflowStorage }}
+      {{- if (eq "-" .Values.persistence.databaseflowStorage.storageClass) }}
+      storageClassName: ""
+      {{- else }}
+      storageClassName: "{{ .Values.persistence.databaseflowStorage.storageClass }}"
+      {{- end }}
+      {{- end }}
+      resources:
+        requests:
+          storage: {{ .Values.persistence.databaseflowStorage.size | quote }}
+  {{- end }}

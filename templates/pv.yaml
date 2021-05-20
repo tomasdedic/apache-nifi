@@ -1,0 +1,29 @@
+{{- if .Values.persistence.manual -}}
+{{- $outer := . -}}
+  {{- range $replicas:= untilStep 1 (int (add1 .Values.replicaCount) ) 1}}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nifidata0{{ $replicas }}
+  labels:
+  {{- with $outer }}
+    app: {{ include "apache-nifi.fullname" . }}
+  {{- end }}
+spec:
+  storageClassName: {{ $.Values.persistence.nfs.storageClass }}
+  capacity:
+    storage: {{ $.Values.persistence.nifidata.size }}
+  accessModes:
+  {{- range $.Values.persistence.accessModes }}
+    - {{ . | quote }}
+  {{- end }}
+  mountOptions:
+  {{- range $.Values.persistence.nfs.mountOptions }}
+    - {{ . }}
+  {{- end }}
+  nfs:
+    path: {{ $.Values.persistence.nfs.pathPrefix }}0{{ $replicas }}
+    server: {{ $.Values.persistence.nfs.server }}
+  persistentVolumeReclaimPolicy: Retain
+  {{- end }}
+{{- end}}

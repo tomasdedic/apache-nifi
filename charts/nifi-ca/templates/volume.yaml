@@ -1,0 +1,34 @@
+{{- if .Values.persistence.enabled }}
+{{- if .Values.persistence.manual}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nifi-ca
+spec:
+  accessModes:
+  {{- range .Values.persistence.accessModes }}
+    - {{ . | quote }}
+  {{- end }}
+  storageClassName: {{ .Values.persistence.nfs.storageClass | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.caStorage.size }}
+  selector:
+    matchLabels:
+      app: {{ template "ca.fullname" . }}
+{{else}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nifi-ca
+spec:
+  accessModes:
+  {{- range .Values.persistence.accessModes }}
+    - {{ . | quote }}
+  {{- end }}
+  storageClassName: {{ .Values.persistence.storageClass | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.caStorage.size }}
+{{end}}
+{{- end }}

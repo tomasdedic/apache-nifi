@@ -1,0 +1,22 @@
+---
+# Source: nifi-registry/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: RELEASE-NAME-nifi-registry
+  labels:
+    helm.sh/chart: nifi-registry-0.1.1
+    app.kubernetes.io/name: nifi-registry
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/version: "0.6.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: nifi-registry
+    app.kubernetes.io/instance: RELEASE-NAME

@@ -1,0 +1,99 @@
+---
+# Source: nifi-registry/templates/statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: RELEASE-NAME-nifi-registry
+  labels:
+    helm.sh/chart: nifi-registry-0.1.1
+    app.kubernetes.io/name: nifi-registry
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/version: "0.6.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nifi-registry
+      app.kubernetes.io/instance: RELEASE-NAME
+  serviceName: RELEASE-NAME-nifi-registry
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: nifi-registry
+        app.kubernetes.io/instance: RELEASE-NAME
+    spec:
+      serviceAccountName: RELEASE-NAME-nifi-registry
+      securityContext:
+        {}
+      initContainers:
+        - name: take-data-dir-ownership
+          image: alpine:3.6
+          command:
+            - chown
+            - -R
+            - 1000:1000
+            - /opt/nifi-registry/nifi-registry-current/database
+            - /opt/nifi-registry/nifi-registry-current/flow_storage
+          volumeMounts:
+            - name: "database-flow_storage"
+              mountPath: /opt/nifi-registry/nifi-registry-current/database
+              subPath: nifi-registry-current/database
+            - name: "database-flow_storage"
+              mountPath: /opt/nifi-registry/nifi-registry-current/flow_storage
+              subPath: nifi-registry-current/flow_storage
+          
+      containers:
+        - name: nifi-registry
+          securityContext:
+            {}
+          image: "apache/nifi-registry:0.6.0"
+          imagePullPolicy: IfNotPresent
+          command:
+            - bash
+            - -ce
+            - |
+              if ! test -f /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db; then
+                cp /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db.temp /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db
+              fi
+              ${NIFI_REGISTRY_BASE_DIR}/scripts/start.sh
+          ports:
+            - name: http
+              containerPort: 18080
+              protocol: TCP
+          volumeMounts:
+            
+            - name: "database-flow_storage"
+              mountPath: /opt/nifi-registry/nifi-registry-current/database
+              subPath: nifi-registry-current/database
+            - name: "database-flow_storage"
+              mountPath: /opt/nifi-registry/nifi-registry-current/flow_storage
+              subPath: nifi-registry-current/flow_storage
+            
+            - name: "default-database"
+              mountPath: /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db.temp
+              subPath: "nifi-registry-primary.mv.db.temp"
+          resources:
+            {}
+      volumes:
+        - name: "default-database"
+          secret:
+            secretName: RELEASE-NAME-nifi-registry-config
+            items:
+              - key: "default-database"
+                path: "nifi-registry-primary.mv.db.temp"
+  
+  volumeClaimTemplates:
+  - metadata:
+      name: databaseflowStorage
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      
+      
+      storageClassName: ""
+      
+      
+      resources:
+        requests:
+          storage: "20Gi"

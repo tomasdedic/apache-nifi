@@ -1,0 +1,28 @@
+---
+# Source: nifi-registry/templates/pv.yaml
+kind: PersistentVolume
+metadata:
+  name: databaseflow-storage00
+spec:
+  storageClassName: 
+  capacity:
+    storage: 50Gi
+  accessModes:
+  - ReadWriteMany
+  nfs:
+    path: //xxnfsxxx/databaseflow-storage00
+    server: xxnfsxxx.file.core.windows.net
+  persistentVolumeReclaimPolicy: Retain
+kind: PersistentVolume
+metadata:
+  name: databaseflow-storage01
+spec:
+  storageClassName: 
+  capacity:
+    storage: 50Gi
+  accessModes:
+  - ReadWriteMany
+  nfs:
+    path: //xxnfsxxx/databaseflow-storage01
+    server: xxnfsxxx.file.core.windows.net
+  persistentVolumeReclaimPolicy: Retain
