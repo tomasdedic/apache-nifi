@@ -73,7 +73,7 @@ else use user-provided name and port
 Create ca.server
 */}}
 {{- define "ca.server" }}
-{{- if .Values.ca.enabled -}}
+{{- if .Values.properties.clusterSecure -}}
 {{- printf "%s-ca" .Release.Name }}
 {{- else -}}
 {{- printf "%s" .Values.ca.server }}

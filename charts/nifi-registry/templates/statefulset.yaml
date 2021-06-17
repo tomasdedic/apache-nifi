@@ -12,17 +12,17 @@ spec:
   serviceName: {{ include "nifi-registry.fullname" . }}
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
+{{- with .Values.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
-    {{- end }}
+{{- end }}
       labels:
         {{- include "nifi-registry.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
+{{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+{{- end }}
       serviceAccountName: {{ include "nifi-registry.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -36,16 +36,55 @@ spec:
               cd tree
               [ -d nifi-registry-current/database ] || mkdir -p nifi-registry-current/database
               [ -d nifi-registry-current/flow_storage ] || mkdir -p nifi-registry-current/flow_storage
-              chown -R 1000:1000 nifi-registry-current/database nifi-registry-current/flow_storage
-          {{- if .Values.persistence.enabled }}
+              [ -d nifi-registry-current/certs ] || mkdir -p nifi-registry-current/certs
+              chown -R 1000:1000 nifi-registry-current/database nifi-registry-current/flow_storage nifi-registry-current/certs
+{{- if .Values.persistence.enabled }}
           volumeMounts:
             - name: "databaseflow-storage"
               mountPath: /tree
-          {{- end }}
+{{- end }}
+{{- if .Values.properties.clusterSecure }}
+        - name: cert-request
+          imagePullPolicy: {{ .Values.global.tls.image.pullPolicy | quote }}
+          image: "{{ .Values.global.tls.image.repository }}:{{ .Values.global.tls.image.tag }}"
+          command:
+            - bash
+            - -c
+            - |
+              CERT_PATH="/opt/nifi-registry/nifi-registry-current/certs"
+              CA_ADDRESS="{{ template "ca.server" . }}:{{ .Values.global.tls.caService.port }}"
+              until echo "" | timeout -t 2 openssl s_client -connect "${CA_ADDRESS}"; do
+                # Checking if ca server using nifi-toolkit is up
+                echo "Waiting for CA to be available at ${CA_ADDRESS}"
+                sleep 2
+              done;
+              # generate node cert function
+              generate_node_cert() {
+               ${NIFI_TOOLKIT_HOME}/bin/tls-toolkit.sh client \
+                -c "{{ template "ca.server" . }}" \
+                -t {{ .Values.global.tls.token }} \
+{{- if .Values.properties.webProxyHost }}
+                --subjectAlternativeNames {{ .Values.properties.webProxyHost }}, $(hostname -f) \
+{{- else }}
+                --subjectAlternativeNames {{ template "nifi-registry.fullname" . }}.{{ .Release.Namespace }}.svc \
+{{- end }}
+                -D "CN=$(hostname -f), OU=NIFI" \
+                -p {{ .Values.global.tls.caService.port }}
+                }
+              cd ${CERT_PATH}
+              #certs generating (reuse old certs if available)
+              # 1. nifi-registry node cert
+              if [ ! -f config.json ] || [ ! -f keystore.jks ] || [ ! -f truststore.jks ];then 
+                rm -f *
+                generate_node_cert
+              fi
+          volumeMounts:
+            - name: "databaseflow-storage"
+              mountPath: /opt/nifi-registry/nifi-registry-current/certs
+              subPath: nifi-registry-current/certs
+{{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
@@ -55,13 +94,35 @@ spec:
               if ! test -f /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db; then
                 cp /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db.temp /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db
               fi
-              ${NIFI_REGISTRY_BASE_DIR}/scripts/start.sh
+{{- if .Values.properties.clusterSecure }}
+              export_tls_values() {
+                CERT_PATH=/opt/nifi-registry/nifi-registry-current/certs
+                export AUTH=tls
+                export KEYSTORE_PATH=${CERT_HOME}/keystore.jks
+                export KEYSTORE_TYPE=jks
+                export KEYSTORE_PASSWORD=$(jq -r .keyStorePassword ${CERT_HOME}/config.json)
+                export KEY_PASSWORD=$KEYSTORE_PASSWORD
+                export TRUSTSTORE_PATH=${CERT_HOME}/trustore.jks
+                export TRUSTSTORE_TYPE=jks
+                export TRUSTSTORE_PASSWORD=$(jq -r .trustStorePassword ${CERT_HOME}/config.json
+                export NIFI_REGISTRY_WEB_HTTPS_HOST=$(hostname -f)
+                export INITIAL_ADMIN_IDENTITY="CN=admin, OU=NIFI"
+              }
+              export_tls_values
+{{- end }}
+                ${NIFI_REGISTRY_BASE_DIR}/scripts/start.sh
           ports:
+{{- if .Values.properties.clusterSecure }}
+            - name: https
+              containerPort: 18443
+              protocol: TCP
+{{- else }}
             - name: http
               containerPort: 18080
               protocol: TCP
+{{- end }}
           volumeMounts:
-            {{ if .Values.persistence.enabled }}
+            {{- if .Values.persistence.enabled }}
             - name: "databaseflow-storage"
               mountPath: /opt/nifi-registry/nifi-registry-current/database
               subPath: nifi-registry-current/database

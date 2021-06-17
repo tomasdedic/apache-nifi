@@ -6,13 +6,13 @@ dependencies:
   name: zookeeper
   #repository: https://charts.bitnami.com/bitnami
   repository: ""
-  version: 5.23.0
+  version: 1.0.1
 - alias: registry
   condition: registry.enabled
   name: nifi-registry
   # repository: https://dysnix.github.io/charts/
   repository: ""
-  version: 0.1.1
+  version: 1.0.1
 - alias: ca
   condition: ca.enabled
   name: nifi-ca
@@ -29,4 +29,4 @@ maintainers:
 - email: dedtom@gmail.com
   name: Tomas Dedic
   url: https://github.com/tomasdedic
-version: 1.0.0
+version: 1.0.1

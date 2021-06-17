@@ -85,7 +85,7 @@ properties:
   isNode: true # set to false if ldap is enabled
   httpPort: 8080 # set to null if ldap is enabled
   httpsPort: 9443 # set to 9443 if ldap is enabled
-  webProxyHost: nifi-nifi.apps.oshi43.csas.elostech.cz
+  webProxyHost: nifi.apps.oaz-dev.ocp4.azure.csint.cz
   clusterPort: 6007
   clusterSecure: true # set to true if ldap is enabled
   needClientAuth: true
@@ -203,10 +203,10 @@ persistence:
 resources:
    limits:
     cpu: 400m
-    memory: 1300Mi
+    memory: 2536Mi
    requests:
     cpu: 300m
-    memory: 1024Mi
+    memory: 1536Mi
 
 logresources:
   requests:
@@ -257,8 +257,7 @@ openshift:
     enabled: true
   route:
     enabled: true
-    path: /
-    host: "nifi-nifi.apps.oshi43.csas.elostech.cz"
+    host: nifi.apps.oaz-dev.ocp4.azure.csint.cz
     # isolate namespace for pods in namespace and ingress
   networkpolicy:
     enabled: true
@@ -304,23 +303,9 @@ zookeeper:
 # ------------------------------------------------------------------------------
 registry:
   ## If true, install the Nifi registry
-  replicaCount: 1 # not tested for more replicas
   enabled: true
   url: ""
-  # port: 80
-  openshift:
-    route:
-      enabled: true
-      path: /
-      host: "nifi-registry.apps.oshi43.csas.elostech.cz"
-  properties:
-    webProxyHost: "nifi-registry.apps.oshi43.csas.elostech.cz"
-    clusterSecure: true
-    httpPort: 80
-    httpsPort: 443
-  service:
-    type: ClusterIP
-
+  port: 80
   ## Add values for the nifi-registry here
   ## ref: https://github.com/dysnix/charts/blob/master/nifi-registry/values.yaml
 
@@ -328,7 +313,7 @@ registry:
 metrics:
   prometheus:
     # Enable Prometheus metrics
-    enabled: true
+    enabled: false
     # Port used to expose Prometheus metrics
     port: 9092
     serviceMonitor:
@@ -336,16 +321,3 @@ metrics:
       enabled: false
       # Additional labels for the ServiceMonitor
       labels: {}
-
-# registry clusersecure/ use tls
-global:
-  tls:
-    caService:
-      port: 9090
-    token: sixteenCharacters
-    admin:
-      cn: admin
-    enabled: true
-    image:
-        tag: "1.13.2"
-        pullPolicy: IfNotPresent

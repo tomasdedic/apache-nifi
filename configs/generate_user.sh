@@ -20,7 +20,7 @@ if [ ! -d $USERCERTDIR ];then
     -c "{{ template "ca.server" . }}" \
     -t {{ .Values.ca.token }} \
   {{- if .Values.properties.webProxyHost }}
-    --subjectAlternativeNames {{ .Values.properties.webProxyHost }} \
+    --subjectAlternativeNames {{ .Values.properties.webProxyHost }}, {{ template "apache-nifi.fullname" . }}.{{ .Release.Namespace }}.svc \
   {{- else }}
     --subjectAlternativeNames {{ template "apache-nifi.fullname" . }}.{{ .Release.Namespace }}.svc \
   {{- end }}

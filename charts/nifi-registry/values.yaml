@@ -24,8 +24,9 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
-  # fsGroup: 2000
+podSecurityContext:
+  fsGroup: 1000
+  runAsUser: 1000
 
 securityContext: {}
   # capabilities:
@@ -37,7 +38,17 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 443
+
+properties:
+  httpPort: 80
+  httpsPort: 443
+
+openshift:
+  route:
+    enabled: true
+    path: /
+    host: ""
 
 ingress:
   enabled: false

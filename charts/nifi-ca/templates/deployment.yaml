@@ -33,20 +33,20 @@ spec:
             OPTIONS="--configJson config.json --useConfigJson"
           fi
           exec ${NIFI_TOOLKIT_HOME}/bin/tls-toolkit.sh server -c "{{ template "ca.fullname" . }}" -t {{ .Values.token }} -p {{ .Values.app_port }} ${OPTIONS}
-        lifecycle:
-          postStart:
-            exec:
-              command:
-              - sh
-              - -c
-              - |
-                sleep 5
-                if [ -f nifi-ca-keystore.jks ] && [ ! -f nifi-ca-crt.pem ] && [ ! -f nifi-ca-key.pem ] && [ ! -f nifi-ca-keystore.pkcs12 ]; then
-                export PASS=$(jq -r .keyStorePassword config.json)
-                keytool -importkeystore -srckeystore nifi-ca-keystore.jks -srcstoretype jks -srcstorepass $PASS -destkeystore nifi-ca-keystore.pkcs12 -deststoretype pkcs12 -deststorepass $PASS
-                openssl pkcs12 -in "keystore.pkcs12" -out "nifi-ca-key.pem" -nocerts -nodes -password "env:PASS"
-                openssl pkcs12 -in "keystore.pkcs12" -out "nifi-ca-crt.pem" -clcerts -nokeys -password "env:PASS"
-                fi
+        # lifecycle:
+        #   postStart:
+        #     exec:
+        #       command:
+        #       - sh
+        #       - -c
+        #       - |
+        #         sleep 5
+        #         if [ -f nifi-ca-keystore.jks ] && [ ! -f nifi-ca-crt.pem ] && [ ! -f nifi-ca-key.pem ] && [ ! -f nifi-ca-keystore.pkcs12 ]; then
+        #         export PASS=$(jq -r .keyStorePassword config.json)
+        #         keytool -importkeystore -srckeystore nifi-ca-keystore.jks -srcstoretype jks -srcstorepass $PASS -destkeystore nifi-ca-keystore.pkcs12 -deststoretype pkcs12 -deststorepass $PASS
+        #         openssl pkcs12 -in "nifi-ca-keystore.pkcs12" -out "nifi-ca-key.pem" -nocerts -nodes -password "env:PASS"
+        #         openssl pkcs12 -in "nifi-ca-keystore.pkcs12" -out "nifi-ca-crt.pem" -clcerts -nokeys -password "env:PASS"
+        #         fi
         resources:
 {{ toYaml .Values.resources | indent 10 }}
         ports:

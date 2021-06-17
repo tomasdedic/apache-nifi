@@ -1,0 +1,26 @@
+{{- if .Values.openshift.route.enabled -}}
+{{- $fullName := include "nifi-registry.fullname" . -}}
+{{- $ingressPath := .Values.openshift.route.path -}}
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "nifi-registry.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.openshift.route.host }}
+  host: {{ .Values.openshift.route.host }}
+  {{- end }}
+  {{- if .Values.openshift.route.host }}
+  path: {{ $ingressPath }}
+  {{- end }}
+  to:
+    kind: Service
+    name: {{ $fullName }}
+    weight: 100
+  wildcardPolicy: None
+{{- end }}

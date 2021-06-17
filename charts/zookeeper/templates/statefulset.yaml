@@ -64,7 +64,8 @@ spec:
       - maxSkew: 1
         topologyKey: "failure-domain.beta.kubernetes.io/zone"
         whenUnsatisfiable: "ScheduleAnyway"
-        labelSelector: {{- include "zookeeper.labels" . | nindent 12 }}
+        labelSelector:
+          matchLabels: {{- include "zookeeper.labels" . | nindent 12 }}
 
       {{- if and .Values.volumePermissions.enabled .Values.persistence.enabled }}
       initContainers:
