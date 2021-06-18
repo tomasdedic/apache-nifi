@@ -14,9 +14,6 @@ spec:
   {{- if .Values.openshift.route.host }}
   host: {{ .Values.openshift.route.host }}
   {{- end }}
-  {{- if .Values.openshift.route.host }}
-  path: {{ $ingressPath }}
-  {{- end }}
   to:
     kind: Service
     name: {{ $fullName }}

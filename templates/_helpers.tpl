@@ -61,11 +61,17 @@ Form the Nifi Registry URL and port. If nifi-registry is installed as part of th
 else use user-provided name and port
 */}}
 {{- define "registry.url" }}
-{{- $port := .Values.registry.port | toString }}
 {{- if .Values.registry.enabled -}}
-{{- printf "http://nifi-registry:%s" $port }}
+{{- if .Values.registry.properties.clusterSecure }}
+{{- $port := .Values.registry.properties.httpsPort | toString }}
+{{- printf "https://nifi-registry:%s" $port }}
 {{- else -}}
-{{- printf "http://%s:%s" .Values.registry.url $port }}
+{{- $port := .Values.registry.properties.httpPort | toString }}
+{{- printf "http://nifi-registry:%s" $port }}
+{{- end -}}
+{{- else -}}
+{{- $port := .Values.registry.properties.httpPort | toString }}
+{{- printf "https://%s:%s" .Values.registry.url $port }}
 {{- end -}}
 {{- end -}}
 

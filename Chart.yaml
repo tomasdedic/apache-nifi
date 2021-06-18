@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: 1.13.2
+appVersion: 1.13.3
 name: nifi
 dependencies:
 - condition: zookeeper.enabled
   name: zookeeper
   #repository: https://charts.bitnami.com/bitnami
   repository: ""
-  version: 1.0.1
+  version: 5.23.0
 - alias: registry
   condition: registry.enabled
   name: nifi-registry

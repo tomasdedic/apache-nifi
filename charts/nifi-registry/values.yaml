@@ -41,8 +41,8 @@ service:
   port: 443
 
 properties:
-  httpPort: 80
-  httpsPort: 443
+  httpPort: 18080
+  httpsPort: 18443
 
 openshift:
   route:

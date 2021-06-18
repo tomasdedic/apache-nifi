@@ -15,12 +15,21 @@ spec:
   {{- if .Values.openshift.route.host }}
   host: {{ .Values.openshift.route.host }}
   {{- end }}
-  {{- if .Values.openshift.route.host }}
-  path: {{ $ingressPath }}
-  {{- end }}
   to:
     kind: Service
     name: {{ $fullName }}
     weight: 100
-  wildcardPolicy: None
+  port:
+{{- if .Values.properties.clusterSecure }}
+    targetPort: https
+  tls:
+    {{- if .Values.properties.externalSecure }}
+    termination: edge
+    {{- else }}
+    termination: passthrough
+    {{- end }}
+    insecureEdgeTerminationPolicy: Redirect
+{{- else }}
+    targetPort: http
+{{- end }}
 {{- end }}

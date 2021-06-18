@@ -30,7 +30,7 @@ zookeeper:
 
 
 # Number of nifi nodes
-replicaCount: 2
+replicaCount: 1
 # predefined server identities, for scaling (hard to be done) its easier to define tls certs for nodes in advance
 predefinedNodeIdentitiesCount: 5
 
@@ -56,7 +56,7 @@ sts:
   pod:
     annotations:
       security.alpha.kubernetes.io/sysctls: net.ipv4.ip_local_port_range=10000 65000
-      #prometheus.io/scrape: "true"      
+      prometheus.io/scrape: "true"
   serviceAccount:
     create: false
     #  name: nifi
@@ -172,7 +172,7 @@ ingress:
   # If you want to change the default path, see this issue https://github.com/cetic/helm-nifi/issues/22
 
 # Amount of memory to give the NiFi java heap
-jvmMemory: 1024m
+jvmMemory: 1200m
 
 # Separate image for tailing each log separately and checking zookeeper connectivity
 sidecar:
@@ -202,11 +202,11 @@ persistence:
 ##
 resources:
    limits:
+    cpu: 500m
+    memory: 1500Mi
+   requests:
     cpu: 400m
     memory: 1300Mi
-   requests:
-    cpu: 300m
-    memory: 1024Mi
 
 logresources:
   requests:
@@ -218,7 +218,13 @@ logresources:
 
 nodeSelector: {}
 
-tolerations: []
+tolerations:
+  - effect: NoSchedule
+    key: node-role
+    value: monitoring
+  - effect: NoSchedule
+    key: node-role
+    value: logging
 
 initContainers: {}
   # foo-init:  # <- will be used as container name
@@ -298,6 +304,11 @@ zookeeper:
   url: ""
   port: 2181
   replicaCount: 3
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 80m
+  replicaCount: 1
 
 # ------------------------------------------------------------------------------
 # Nifi registry:
@@ -308,18 +319,35 @@ registry:
   enabled: true
   url: ""
   # port: 80
+  tolerations:
+    - effect: NoSchedule
+      key: node-role
+      value: monitoring
+    - effect: NoSchedule
+      key: node-role
+      value: logging
   openshift:
     route:
       enabled: true
       path: /
       host: "nifi-registry.apps.oshi43.csas.elostech.cz"
   properties:
+    externalSecure: false
     webProxyHost: "nifi-registry.apps.oshi43.csas.elostech.cz"
     clusterSecure: true
-    httpPort: 80
-    httpsPort: 443
+    httpPort: 18080
+    httpsPort: 18443
   service:
     type: ClusterIP
+  auth:
+    admin: "CN=admin, OU=NIFI"
+  resources:
+     limits:
+       cpu: 100m
+       memory: 512Mi
+     requests:
+       cpu: 100m
+       memory: 400Mi
 
   ## Add values for the nifi-registry here
   ## ref: https://github.com/dysnix/charts/blob/master/nifi-registry/values.yaml
@@ -347,5 +375,6 @@ global:
       cn: admin
     enabled: true
     image:
+        repository: apache/nifi-toolkit
         tag: "1.13.2"
         pullPolicy: IfNotPresent

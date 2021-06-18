@@ -63,7 +63,7 @@ spec:
       topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: "failure-domain.beta.kubernetes.io/zone"
-        whenUnsatisfiable: "ScheduleAnyway"
+        whenUnsatisfiable: "DoNotSchedule"
         labelSelector:
           matchLabels: {{- include "zookeeper.labels" . | nindent 12 }}
 

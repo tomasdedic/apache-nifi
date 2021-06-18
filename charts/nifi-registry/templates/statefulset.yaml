@@ -27,8 +27,8 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
-        - name: take-data-dir-ownership
-          image: alpine:3.6
+        - name: treeemaker
+          image: "busybox:1.32.0"
           command:
             - sh
             - -c
@@ -37,7 +37,6 @@ spec:
               [ -d nifi-registry-current/database ] || mkdir -p nifi-registry-current/database
               [ -d nifi-registry-current/flow_storage ] || mkdir -p nifi-registry-current/flow_storage
               [ -d nifi-registry-current/certs ] || mkdir -p nifi-registry-current/certs
-              chown -R 1000:1000 nifi-registry-current/database nifi-registry-current/flow_storage nifi-registry-current/certs
 {{- if .Values.persistence.enabled }}
           volumeMounts:
             - name: "databaseflow-storage"
@@ -98,15 +97,15 @@ spec:
               export_tls_values() {
                 CERT_PATH=/opt/nifi-registry/nifi-registry-current/certs
                 export AUTH=tls
-                export KEYSTORE_PATH=${CERT_HOME}/keystore.jks
+                export KEYSTORE_PATH=${CERT_PATH}/keystore.jks
                 export KEYSTORE_TYPE=jks
-                export KEYSTORE_PASSWORD=$(jq -r .keyStorePassword ${CERT_HOME}/config.json)
+                export KEYSTORE_PASSWORD=$(jq -r .keyStorePassword ${CERT_PATH}/config.json)
                 export KEY_PASSWORD=$KEYSTORE_PASSWORD
-                export TRUSTSTORE_PATH=${CERT_HOME}/trustore.jks
+                export TRUSTSTORE_PATH=${CERT_PATH}/truststore.jks
                 export TRUSTSTORE_TYPE=jks
-                export TRUSTSTORE_PASSWORD=$(jq -r .trustStorePassword ${CERT_HOME}/config.json
+                export TRUSTSTORE_PASSWORD=$(jq -r .trustStorePassword ${CERT_PATH}/config.json)
                 export NIFI_REGISTRY_WEB_HTTPS_HOST=$(hostname -f)
-                export INITIAL_ADMIN_IDENTITY="CN=admin, OU=NIFI"
+                export INITIAL_ADMIN_IDENTITY="{{ .Values.auth.admin }}"
               }
               export_tls_values
 {{- end }}
@@ -114,11 +113,11 @@ spec:
           ports:
 {{- if .Values.properties.clusterSecure }}
             - name: https
-              containerPort: 18443
+              containerPort: {{ .Values.properties.httpsPort }}
               protocol: TCP
 {{- else }}
             - name: http
-              containerPort: 18080
+              containerPort: {{ .Values.properties.httpPort }} 
               protocol: TCP
 {{- end }}
           volumeMounts:
@@ -129,6 +128,9 @@ spec:
             - name: "databaseflow-storage"
               mountPath: /opt/nifi-registry/nifi-registry-current/flow_storage
               subPath: nifi-registry-current/flow_storage
+            - name: "databaseflow-storage"
+              mountPath: /opt/nifi-registry/nifi-registry-current/certs
+              subPath: nifi-registry-current/certs
             {{- end }}
             - name: "default-database"
               mountPath: /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db.temp
