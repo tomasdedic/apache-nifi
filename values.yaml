@@ -85,7 +85,7 @@ properties:
   isNode: true # set to false if ldap is enabled
   httpPort: 8080 # set to null if ldap is enabled
   httpsPort: 9443 # set to 9443 if ldap is enabled
-  webProxyHost: nifi-nifi.apps.oshi43.csas.elostech.cz
+  webProxyHost: nifi.apps.oshi43.csas.elostech.cz
   clusterPort: 6007
   clusterSecure: true # set to true if ldap is enabled
   needClientAuth: true
@@ -264,7 +264,7 @@ openshift:
   route:
     enabled: true
     path: /
-    host: "nifi-nifi.apps.oshi43.csas.elostech.cz"
+    host: "nifi.apps.oshi43.csas.elostech.cz"
     # isolate namespace for pods in namespace and ingress
   networkpolicy:
     enabled: true

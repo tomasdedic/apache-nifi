@@ -94,10 +94,16 @@ properties:
   authorizer: managed-authorizer
   # use properties.safetyValve to pass explicit 'key: value' pairs that overwrite other configuration
   safetyValve:
-    #nifi.variable.registry.properties: "${NIFI_HOME}/example1.properties, ${NIFI_HOME}/example2.properties"
     nifi.web.http.network.interface.default: eth0
     # listen to loopback interface so "kubectl port-forward ..." works
     nifi.web.http.network.interface.lo: lo
+  files:
+    nifiProperties:
+      #nifi.queue.backpressure.size 200MB
+      nifiQueueBackPressureSize: "200 MB"
+      #nifi.queue.backpressure.count 5000
+      nifiQueueBackPressureCount: 5000
+
 
   ## Include aditional processors
   # customLibPath: "/opt/configuration_resources/custom_lib"
@@ -193,8 +199,8 @@ persistence:
     enabled: false
     storageClass: "nfs"
     # full path will be //xxnfsxxx/databaseflow-storage01..02.., need to be created at advance
-    pathPrefix: "//xxxnfsxxx/nifidata"
-    server: "xxxnfsxxx.file.core.windows.net"
+    pathPrefix: "store/nifidata"
+    server: "nfs.file.core.windows.net"
     mountOptions:
       - nolock
 ## Configure resource requests and limits
@@ -202,11 +208,11 @@ persistence:
 ##
 resources:
    limits:
-    cpu: 400m
-    memory: 2536Mi
+    cpu: 800m
+    memory: 3072Mi
    requests:
-    cpu: 300m
-    memory: 1536Mi
+    cpu: 400m
+    memory: 2048Mi
 
 logresources:
   requests:
@@ -303,9 +309,39 @@ zookeeper:
 # ------------------------------------------------------------------------------
 registry:
   ## If true, install the Nifi registry
+  replicaCount: 1 # not tested for more replicas
   enabled: true
   url: ""
-  port: 80
+  # port: 80
+  tolerations:
+    - effect: NoSchedule
+      key: node-role
+      value: monitoring
+    - effect: NoSchedule
+      key: node-role
+      value: logging
+  openshift:
+    route:
+      enabled: true
+      path: /
+      host: "nifi-registry.apps.oaz-dev.ocp4.azure.csint.cz"
+  properties:
+    externalSecure: false
+    webProxyHost: "nifi-registry.apps.oaz-dev.ocp4.azure.csint.cz"
+    clusterSecure: true
+    httpPort: 18080
+    httpsPort: 18443
+  service:
+    type: ClusterIP
+  auth:
+    admin: "CN=admin, OU=NIFI"
+  resources:
+     limits:
+       cpu: 100m
+       memory: 512Mi
+     requests:
+       cpu: 100m
+       memory: 400Mi
   ## Add values for the nifi-registry here
   ## ref: https://github.com/dysnix/charts/blob/master/nifi-registry/values.yaml
 
@@ -313,7 +349,7 @@ registry:
 metrics:
   prometheus:
     # Enable Prometheus metrics
-    enabled: false
+    enabled: true
     # Port used to expose Prometheus metrics
     port: 9092
     serviceMonitor:
@@ -321,3 +357,16 @@ metrics:
       enabled: false
       # Additional labels for the ServiceMonitor
       labels: {}
+# registry clusersecure/ use tls
+global:
+  tls:
+    caService:
+      port: 9090
+    token: sixteenCharacters
+    admin:
+      cn: admin
+    enabled: true
+    image:
+        repository: apache/nifi-toolkit
+        tag: "1.13.2"
+        pullPolicy: IfNotPresent
