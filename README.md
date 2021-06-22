@@ -9,52 +9,23 @@ This [Helm](https://helm.sh/) chart installs [Apache NiFi](https://nifi.apache.o
 - [Persistent Volumes (PV)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) provisioner support in the underlying infrastructure.
 
 ## Installation
+[SOME INSTALL NOTES](https://www.sudlice.org/openshift/agregatelogging/nifi-zookeeper-statefullset/)
+
 
 ### Add Helm repository
-
+Dedicated helm repository is not presented
 ```bash
-helm repo add cetic https://cetic.github.io/helm-charts
-helm repo update
+git clone
+#check render
+helm template nifi . -f values-oaz-dev.yaml -n nifi --output-dir render --debug
+
+#install
+helm install nifi . -n monolog-nifi -f values-oaz-dev.yaml --create-namespace
+
+# to upgrade
+helm upgrade nifi . -n monolog-nifi -f values-oaz-dev.yaml
 ```
 
-### Configure the chart
-
-The following items can be set via `--set` flag during installation or configured by editing the [`values.yaml`](values.yaml) file directly (need to download the chart first).
-
-#### Configure how to expose nifi service
-
-- **Ingress**: The ingress controller must be installed in the Kubernetes cluster.
-- **ClusterIP**: Exposes the service on a cluster-internal IP. Choosing this value makes the service only reachable from within the cluster.
-- **NodePort**: Exposes the service on each Node’s IP at a static port (the NodePort). You’ll be able to contact the NodePort service, from outside the cluster, by requesting `NodeIP:NodePort`.
-- **LoadBalancer**: Exposes the service externally using a cloud provider’s load balancer.
-
-#### Configure how to persist data
-
-- **Disable**: The data does not survive the termination of a pod.
-- **Persistent Volume Claim(default)**: A default `StorageClass` is needed in the Kubernetes cluster to dynamically provision the volumes. Specify another StorageClass in the `storageClass` or set `existingClaim` if you have already existing persistent volumes to use.
-
-#### Configure authentication
-
-- You first need a secure cluster which can be accomplished by enabling the built-in CA nifi-toolkit container (`ca.enabled` to true). By default, a secure nifi cluster uses certificate based authentication but you can optionally enable `ldap` or `oidc`. See the configuration section for more details.
-
-:warning: This feature is quite new. Please open an issue if you encounter a problem.
-It seems that versions from 0.6.1 include some bugs for authentications. Please use version 0.6.0 of the chart until it is fixed. 
-
-#### Use custom processors
-
-To add [custom processors](https://cwiki.apache.org/confluence/display/NIFI/Maven+Projects+for+Extensions#MavenProjectsforExtensions-MavenProcessorArchetype), the `values.yaml` file `nifi` section should contain the following options, where `CUSTOM_LIB_FOLDER` should be replaced by the path where the libs are:
-
-```yaml
-  extraVolumeMounts:
-    - name: mycustomlibs
-      mountPath: /opt/configuration_resources/custom_lib
-  extraVolumes: # this will create the volume from the directory
-    - name: mycustomlibs
-      hostPath:
-        path: "CUSTOM_LIB_FOLDER"
-  properties:
-    customLibPath: "/opt/configuration_resources/custom_lib"
-```
 
 #### Configure prometheus monitoring
 
@@ -63,25 +34,6 @@ To enable the creation of prometheus metrics within Nifi we need to create a *Re
 
 If you plan to use Grafana for the visualization of the metrics data [the following dashboard](https://grafana.com/grafana/dashboards/12314) is compatible with the exposed metrics. 
 
-### Install the chart
-
-Install the nifi helm chart with a release name `my-release`:
-
-```bash
-helm install my-release cetic/nifi
-```
-
-### Install from local clone
-
-```bash
-git clone https://github.com/cetic/helm-nifi.git nifi
-cd nifi
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm repo add dysnix https://dysnix.github.io/charts/
-helm repo update
-helm dep up
-helm install --name nifi .
-```
 
 ## Uninstallation
 
