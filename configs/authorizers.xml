@@ -1,5 +1,5 @@
 {{- $replicas := int .Values.replicaCount }}
-{{- $nodeidentities := int .Values.predefinedNodeIdentitiesCount }}
+{{- $nodeidentities := int .Values.global.predefinedNodeIdentitiesCount }}
 {{- $chart := .Chart.Name }}
 {{- $release := .Release.Name }}
 {{- $fullname := include "apache-nifi.fullname" . }}

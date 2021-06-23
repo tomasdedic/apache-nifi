@@ -98,6 +98,12 @@ properties:
     nifi.web.http.network.interface.default: eth0
     # listen to loopback interface so "kubectl port-forward ..." works
     nifi.web.http.network.interface.lo: lo
+  files:
+    nifiProperties:
+      #nifi.queue.backpressure.size 200MB
+      nifiQueueBackPressureSize: "200 MB"
+      #nifi.queue.backpressure.count 5000
+      nifiQueueBackPressureCount: 5000
 
   ## Include aditional processors
   # customLibPath: "/opt/configuration_resources/custom_lib"

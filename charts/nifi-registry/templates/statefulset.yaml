@@ -37,6 +37,7 @@ spec:
               [ -d nifi-registry-current/database ] || mkdir -p nifi-registry-current/database
               [ -d nifi-registry-current/flow_storage ] || mkdir -p nifi-registry-current/flow_storage
               [ -d nifi-registry-current/certs ] || mkdir -p nifi-registry-current/certs
+              [ -d nifi-registry-current/conf ] || mkdir -p nifi-registry-current/conf
 {{- if .Values.persistence.enabled }}
           volumeMounts:
             - name: "databaseflow-storage"
@@ -93,6 +94,24 @@ spec:
               if ! test -f /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db; then
                 cp /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db.temp /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db
               fi
+
+              #config files are on PV, check if present otherwise use default from configmap
+              check_for_confile () {
+                conf_dir="/opt/nifi-registry/nifi-registry-current/conf"
+                if [ ! -f "$conf_dir/$1" ]; then
+                  echo "file "$conf_dir/$1" not exists, use default configmap"
+                  cat "$conf_dir/../temp/$1.temp" > "$conf_dir/$1"
+                fi
+              }
+              check_for_confile authorizations.xml
+              check_for_confile authorizers.xml
+              check_for_confile bootstrap.conf
+              check_for_confile identity-providers.xml
+              check_for_confile nifi-registry.properties
+              check_for_confile providers.xml
+              check_for_confile registry-aliases.xml
+              check_for_confile users.xml
+              check_for_confile logback.xml
 {{- if .Values.properties.clusterSecure }}
               export_tls_values() {
                 CERT_PATH=/opt/nifi-registry/nifi-registry-current/certs
@@ -131,10 +150,44 @@ spec:
             - name: "databaseflow-storage"
               mountPath: /opt/nifi-registry/nifi-registry-current/certs
               subPath: nifi-registry-current/certs
+            - name: "databaseflow-storage"
+              mountPath: /opt/nifi-registry/nifi-registry-current/conf
+              subPath: nifi-registry-current/conf
             {{- end }}
+
+            - name: "secure-sh"
+              mountPath: /opt/nifi-registry/scripts/secure.sh
+              subPath: "secure.sh"
             - name: "default-database"
               mountPath: /opt/nifi-registry/nifi-registry-current/database/nifi-registry-primary.mv.db.temp
               subPath: "nifi-registry-primary.mv.db.temp"
+            - name: "authorizations-xml-temp"
+              mountPath: /opt/nifi-registry/nifi-registry-current/temp/authorizations.xml.temp
+              subPath: "authorizations.xml.temp"
+            - name: "authorizers-xml-temp"
+              mountPath: /opt/nifi-registry/nifi-registry-current/temp/authorizers.xml.temp
+              subPath: "authorizers.temp"
+            - name: "bootstrap-conf-temp"
+              mountPath: /opt/nifi-registry/nifi-registry-current/temp/bootstrap.conf.temp
+              subPath: "bootstrap.conf.temp"
+            - name: "identity-providers-xml-temp"
+              mountPath: /opt/nifi-registry/nifi-registry-current/temp/identity-providers.xml.temp
+              subPath: "identity-providers.xml.temp"
+            - name: "logback-xml-temp"
+              mountPath: /opt/nifi-registry/nifi-registry-current/temp/logback.xml.temp
+              subPath: "logback.xml.temp"
+            - name: "nifi-registry-properties-temp"
+              mountPath: /opt/nifi-registry/nifi-registry-current/temp/nifi-registry.properties.temp
+              subPath: "nifi-registry.properties.temp"
+            - name: "providers-xml-temp"
+              mountPath: /opt/nifi-registry/nifi-registry-current/temp/providers.xml.temp
+              subPath: "providers.xml.temp"
+            - name: "registry-aliases-xml-temp"
+              mountPath: /opt/nifi-registry/nifi-registry-current/temp/registry-aliases.xml.temp
+              subPath: "registry-aliases.xml.temp"
+            - name: "users-xml-temp"
+              mountPath: /opt/nifi-registry/nifi-registry-current/temp/users.xml.temp
+              subPath: "users.xml.temp"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
@@ -144,6 +197,68 @@ spec:
             items:
               - key: "default-database"
                 path: "nifi-registry-primary.mv.db.temp"
+        - name: "secure-sh"
+          configMap:
+            name: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "secure.sh"
+                path: "secure.sh"
+
+        - name: "authorizations-xml-temp"
+          configMap:
+            name: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "authorizations.xml"
+                path: "authorizations.xml.temp"
+        - name: "authorizers-xml-temp"
+          configMap:
+            name: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "authorizers.xml"
+                path: "authorizers.temp"
+        - name: "bootstrap-conf-temp"
+          configMap:
+            name: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "bootstrap.conf"
+                path: "bootstrap.conf.temp"
+        - name: "identity-providers-xml-temp"
+          configMap:
+            name: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "identity-providers.xml"
+                path: "identity-providers.xml.temp"
+        - name: "logback-xml-temp"
+          configMap:
+            name: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "logback.xml"
+                path: "logback.xml.temp"
+        - name: "nifi-registry-properties-temp"
+          configMap:
+            name: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "nifi-registry.properties"
+                path: "nifi-registry.properties.temp"
+        - name: "providers-xml-temp"
+          configMap:
+            name: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "providers.xml"
+                path: "providers.xml.temp"
+        - name: "registry-aliases-xml-temp"
+          configMap:
+            name: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "registry-aliases.xml"
+                path: "registry-aliases.xml.temp"
+        - name: "users-xml-temp"
+          configMap:
+            name: {{ include "nifi-registry.fullname" . }}-config
+            items:
+              - key: "users.xml"
+                path: "users.xml.temp"
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -370,3 +370,4 @@ global:
         repository: apache/nifi-toolkit
         tag: "1.13.2"
         pullPolicy: IfNotPresent
+  predefinedNodeIdentitiesCount: 5
