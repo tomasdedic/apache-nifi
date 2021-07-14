@@ -56,29 +56,10 @@ sts:
   pod:
     annotations:
       security.alpha.kubernetes.io/sysctls: net.ipv4.ip_local_port_range=10000 65000
-      #prometheus.io/scrape: "true"      
+      prometheus.io/scrape: "true"      
   serviceAccount:
     create: false
     #  name: nifi
-
-## Useful if using any custom secrets
-## Pass in some secrets to use (if required)
-# secrets:
-# - name: myNifiSecret
-#   keys:
-#     - key1
-#     - key2
-#   mountPath: /opt/nifi/secret
-
-## Useful if using any custom configmaps
-## Pass in some configmaps to use (if required)
-  # configmaps:
-  # - name: generate_user_cert
-  #   keys:
-  #     - generate_user.sh
-  #   mountPath: /opt/nifi/nifi-current/config-data/certs/generate_user.sh
-
-
 properties:
   # use externalSecure for when inbound SSL is provided by nginx-ingress or other external mechanism
   externalSecure: false
@@ -88,6 +69,7 @@ properties:
   webProxyHost: nifi.apps.oaz-dev.ocp4.azure.csint.cz
   clusterPort: 6007
   clusterSecure: true # set to true if ldap is enabled
+  regenerateCertificates: false #set true to delete and create certs on PV
   needClientAuth: true
   siteToSite:
     port: 10000
@@ -114,7 +96,7 @@ properties:
 
 # Nifi User Authentication
 auth:
-  admin: CN=admin, OU=NIFI
+  admin: "CN=admin, OU=NIFI"
   SSL:
     keystorePasswd: env:PASS
     truststorePasswd: env:PASS
@@ -263,6 +245,7 @@ openshift:
     enabled: true
   route:
     enabled: true
+    path: /
     host: nifi.apps.oaz-dev.ocp4.azure.csint.cz
     # isolate namespace for pods in namespace and ingress
   networkpolicy:
@@ -303,6 +286,10 @@ zookeeper:
   url: ""
   port: 2181
   replicaCount: 3
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 80m
 
 # ------------------------------------------------------------------------------
 # Nifi registry:

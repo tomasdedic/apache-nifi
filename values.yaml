@@ -60,25 +60,6 @@ sts:
   serviceAccount:
     create: false
     #  name: nifi
-
-## Useful if using any custom secrets
-## Pass in some secrets to use (if required)
-# secrets:
-# - name: myNifiSecret
-#   keys:
-#     - key1
-#     - key2
-#   mountPath: /opt/nifi/secret
-
-## Useful if using any custom configmaps
-## Pass in some configmaps to use (if required)
-  # configmaps:
-  # - name: generate_user_cert
-  #   keys:
-  #     - generate_user.sh
-  #   mountPath: /opt/nifi/nifi-current/config-data/certs/generate_user.sh
-
-
 properties:
   # use externalSecure for when inbound SSL is provided by nginx-ingress or other external mechanism
   externalSecure: false
@@ -249,7 +230,7 @@ extraVolumes: []
 ## Extra containers
 extraContainers: []
 
-terminationGracePeriodSeconds: 60
+terminationGracePeriodSeconds: 30
 
 ## Extra environment variables that will be pass onto deployment pods
 env: []
