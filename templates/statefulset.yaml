@@ -87,7 +87,7 @@ spec:
           [ -d data ] || mkdir -p data
           [ -d nifi-current/auth-conf ] || mkdir -p nifi-current/auth-conf
 {{- if .Values.properties.clusterSecure }}
-          [ -d nifi-current/config-data ] || mkdir -p nifi-current/config-data 
+          [ -d nifi-current/config-data ] || mkdir -p nifi-current/config-data
 {{- end }}
           [ -d flowfile_repository ] || mkdir -p flowfile_repository
           [ -d content_repository ] || mkdir -p content_repository
@@ -142,7 +142,7 @@ spec:
             -c "{{ template "ca.server" . }}" \
             -t {{ .Values.ca.token }} \
 {{- if .Values.properties.webProxyHost }}
-            --subjectAlternativeNames {{ .Values.properties.webProxyHost }}, {{ template "apache-nifi.fullname" . }}.{{ .Release.Namespace }}.svc \
+            --subjectAlternativeNames {{ .Values.properties.webProxyHost }},{{ template "apache-nifi.fullname" . }}.{{ .Release.Namespace }}.svc \
 {{- else }}
             --subjectAlternativeNames {{ template "apache-nifi.fullname" . }}.{{ .Release.Namespace }}.svc \
 {{- end }}
@@ -152,12 +152,16 @@ spec:
           export PASS=$(jq -r .keyStorePassword config.json)
           openssl pkcs12 -in "keystore.pkcs12" -out "keyAdmin.pem" -nocerts -nodes -password "env:PASS"
           openssl pkcs12 -in "keystore.pkcs12" -out "crtAdmin.pem" -clcerts -nokeys -password "env:PASS"
+          keytool -importkeystore -srckeystore keystore.pkcs12 -srcstoretype pkcs12 -srcstorepass $(jq -r .keyStorePassword config.json) -destkeystore keystoreAdmin.jks -deststoretype jks -deststorepass $(jq -r .keyStorePassword config.json)
           openssl pkcs12 -export -inkey "keyAdmin.pem" -in "crtAdmin.pem" -out "certAdmin.p12" -passout pass:
           }
 
           cd /data/config-data
           #certs generating (reuse old certs if available)
-          # 1. nifi node cert
+          # 1. nifi node certs
+          if [ "$REGENERATE_CERTIFICATES" = true ];then
+            rm -rf certs
+          fi
           if [ ! -d certs ];then
             mkdir certs
             cd certs
@@ -165,7 +169,7 @@ spec:
             generate_node_cert
           else
             cd certs
-            if [ ! -f config.json ] || [ ! -f keystore.jks ] || [ ! -f truststore.jks ];then 
+            if [ ! -f config.json ] || [ ! -f keystore.jks ] || [ ! -f truststore.jks ];then
             rm -f *
             generate_node_cert
             fi
@@ -187,6 +191,12 @@ spec:
           - name: "nifidata"
             mountPath: /data/config-data
             subPath: nifi-current/config-data
+          - name: "generate-certs"
+            mountPath: /opt/nifi/nifi-current/generateCerts.sh
+            subPath: "generateCerts.sh"
+        env:
+        - name: REGENERATE_CERTIFICATES
+          value: {{ .Values.properties.regenerateCertificates | quote }}
 {{- end }}
 {{- range $key, $value := .Values.initContainers }}
       - name: {{ $key }}
@@ -247,15 +257,6 @@ spec:
           prop_replace nifi.security.truststoreType jks
           prop_replace nifi.security.truststore   ${NIFI_HOME}/config-data/certs/truststore.jks
           prop_replace nifi.security.truststorePasswd   $(jq -r .trustStorePassword ${NIFI_HOME}/config-data/certs/config.json)
-
-{{- if .Values.properties.webProxyHost }}
-          # Update nifi.properties for web ui proxy hostname
-          prop_replace nifi.web.proxy.host {{ .Values.properties.webProxyHost }}
-{{- else }}
-          prop_replace nifi.web.proxy.host {{ template "apache-nifi.fullname" . }}.{{ .Release.Namespace }}.svc
-{{- end }}
-
-
 {{- end }}
 
 {{- if .Values.properties.safetyValve }}
@@ -263,77 +264,18 @@ spec:
           prop_replace {{ $prop }} "{{ $val }}" nifi.properties
   {{- end }}
 {{- end }}
-
-
           exec bin/nifi.sh run & nifi_pid="$!"
-
-          function offloadNode() {
-              FQDN=$(hostname -f)
-              echo "disconnecting node '$FQDN'"
-              {{- if .Values.properties.clusterSecure }}
-              baseUrl=https://${FQDN}:{{ .Values.properties.httpsPort }}
-
-              keystore=${NIFI_HOME}/config-data/certs/keystore.jks
-              keystorePasswd=$(jq -r .keyStorePassword ${NIFI_HOME}/config-data/certs/config.json)
-              keyPasswd=$(jq -r .keyPassword ${NIFI_HOME}/config-data/certs/config.json)
-              truststore=${NIFI_HOME}/config-data/certs/truststore.jks
-              truststorePasswd=$(jq -r .trustStorePassword ${NIFI_HOME}/config-data/certs/config.json)
-
-              secureArgs=" --truststore ${truststore} --truststoreType JKS --truststorePasswd ${truststorePasswd} --keystore ${keystore} --keystoreType JKS --keystorePasswd ${keystorePasswd} --proxiedEntity "{{ .Values.auth.admin }}""
-              {{- else }}
-              baseUrl=http://${FQDN}:{{ .Values.properties.httpPort }}
-              {{- end }}
-
-              echo baseUrl ${baseUrl}
-              echo "gracefully disconnecting node '$FQDN' from cluster"
-              ${NIFI_TOOLKIT_HOME}/bin/cli.sh nifi get-nodes -ot json -u ${baseUrl} ${secureArgs} > nodes.json
-              nnid=$(jq --arg FQDN "$FQDN" '.cluster.nodes[] | select(.address==$FQDN) | .nodeId' nodes.json)
-              echo "disconnecting node ${nnid}"
-              ${NIFI_TOOLKIT_HOME}/bin/cli.sh nifi disconnect-node -nnid $nnid -u ${baseUrl} ${secureArgs}
-              echo ""
-              echo "wait until node has state 'DISCONNECTED'"
-              while [[ "${node_state}" != "DISCONNECTED" ]]; do
-                  sleep 1
-                  ${NIFI_TOOLKIT_HOME}/bin/cli.sh nifi get-nodes -ot json -u ${baseUrl} ${secureArgs} > nodes.json
-                  node_state=$(jq -r --arg FQDN "$FQDN" '.cluster.nodes[] | select(.address==$FQDN) | .status' nodes.json)
-                  echo "state is '${node_state}'"
-              done
-              echo ""
-              echo "node '${nnid}' was disconnected"
-              echo "offloading node"
-              ${NIFI_TOOLKT_HOME}/bin/cli.sh nifi offload-node -nnid $nnid -u ${baseUrl} ${secureArgs}
-              echo ""
-              echo "wait until node has state 'OFFLOADED'"
-              while [[ "${node_state}" != "OFFLOADED" ]]; do
-                  sleep 1
-                  ${NIFI_TOOLKIT_HOME}/bin/cli.sh nifi get-nodes -ot json -u ${baseUrl} ${secureArgs} > nodes.json
-                  node_state=$(jq -r --arg FQDN "$FQDN" '.cluster.nodes[] | select(.address==$FQDN) | .status' nodes.json)
-                  echo "state is '${node_state}'"
-              done
-          }
-
-          deleteNode() {
-              echo "deleting node"
-              ${NIFI_TOOLKIT_HOME}/bin/cli.sh nifi delete-node -nnid ${nnid} -u ${baseUrl} ${secureArgs}
-              echo "node deleted"
-          }
-
-          trap 'echo Received trapped signal, beginning shutdown...;offloadNode;./bin/nifi.sh stop;deleteNode;exit 0;' TERM HUP INT;
-          trap ":" EXIT
-
+          # trap 'echo Received trapped signal, beginning shutdown...;source ./bin/offloadNode.sh;offloadNode;deleteNode;exit 0;' TERM HUP INT;
+          # trap ":" EXIT
           echo NiFi running with PID ${nifi_pid}.
           wait ${nifi_pid}
-          {{ if .Values.auth.ldap.enabled }}
-          /opt/nifi/nifi-toolkit-current/bin/tls-toolkit.sh standalone -n '{{.Release.Name}}-nifi-0.{{.Release.Name}}-nifi-headless.{{.Release.Namespace}}.svc.cluster.local' -C '{{.Values.auth.ldap.admin}}' -o '/opt/nifi/nifi-current/conf/' -P {{.Values.auth.SSL.truststorePasswd}}  -S {{.Values.auth.SSL.keystorePasswd}}  --nifiPropertiesFile /opt/nifi/nifi-current/conf/nifi.properties
-          exec bin/nifi.sh run
-          {{ end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}
         ports:
 {{- if .Values.metrics.prometheus.enabled }}
         - containerPort: {{ .Values.metrics.prometheus.port }}
           name: metrics
-          protocol: TCP                  
+          protocol: TCP
 {{- end }}
 {{- if .Values.properties.httpsPort }}
         - containerPort: {{ .Values.properties.httpsPort }}
@@ -353,65 +295,46 @@ spec:
         env:
         - name: NIFI_ZOOKEEPER_CONNECT_STRING
           value: {{ template "zookeeper.url" . }}
+
 {{- if .Values.env }}
 {{ toYaml .Values.env | indent 8 }}
 {{- end }}
-{{- if .Values.postStart }}
-{{- if .Values.envFrom }}
-        envFrom:
-{{ toYaml .Values.envFrom | indent 8 }}
-{{- end }}
         lifecycle:
-          postStart:
+          # postStart:
+          #   exec:
+          #     command: ["/bin/sh", "-c", {{ .Values.postStart | quote }}]
+          preStop:
             exec:
-              command: ["/bin/sh", "-c", {{ .Values.postStart | quote }}]
-{{- end }}
+              command: ["/bin/bash", "-c", "./bin/gracefullNodeShutdown.sh"]
 {{- if .Values.properties.isNode }}
-        readinessProbe:
-          initialDelaySeconds: 120
-          periodSeconds: 20
-          failureThreshold: 5
-          tcpSocket:
-{{- if .Values.properties.httpsPort }}
-            port: {{ .Values.properties.httpsPort }}
-{{- else }}
-            port: {{ .Values.properties.httpPort }}
-{{- end }}
-# {{- if .Values.properties.httpsPort }}
-#               curl -kv \
-#                 --cert ${NIFI_HOME}/config-data/certs/admin/crt.pem --cert-type PEM \
-#                 --key ${NIFI_HOME}/config-data/certs/admin/key.pem --key-type PEM \
-#                 https://$(hostname -f):{{ .Values.properties.httpsPort }}/nifi-api/controller/cluster > $NIFI_BASE_DIR/data/cluster.state
-# {{- else }}
-#               curl -kv \
-#                 http://$(hostname -f):{{ .Values.properties.httpPort }}/nifi-api/controller/cluster > $NIFI_BASE_DIR/data/cluster.state
-# {{- end }}
-#               STATUS=$(jq -r ".cluster.nodes[] | select((.address==\"$(hostname -f)\") or .address==\"localhost\") | .status" $NIFI_BASE_DIR/data/cluster.state)
-
-#               if [[ ! $STATUS = "CONNECTED" ]]; then
-#                 echo "Node not found with CONNECTED state. Full cluster state:"
-#                 jq . $NIFI_BASE_DIR/data/cluster.state
-#                 exit 1
-#               fi
-# {{- end }}
         livenessProbe:
-          initialDelaySeconds: 120
-          periodSeconds: 90
-          tcpSocket:
-{{- if .Values.properties.httpsPort }}
-            port: {{ .Values.properties.httpsPort }}
-{{- else }}
-            port: {{ .Values.properties.httpPort }}
-{{- end }}
+          periodSeconds: 10
+          failureThreshold: 3
+          timeoutSeconds: 5
+          exec:
+            command:
+            - bash
+            - -c
+            - ./bin/livenessProbe.sh
+        readinessProbe:
+          periodSeconds: 10
+          failureThreshold: 2
+          timeoutSeconds: 5
+          exec:
+            command:
+            - bash
+            - -c
+            - ./bin/readinessProbe.sh
         startupProbe:
-          failureThreshold: 10
-          periodSeconds: 20
-          tcpSocket:
-{{- if .Values.properties.httpsPort }}
-            port: {{ .Values.properties.httpsPort }}
-{{- else }}
-            port: {{ .Values.properties.httpPort }}
-{{- end }}
+          initialDelaySeconds: 140
+          failureThreshold: 6
+          periodSeconds: 30
+          timeoutSeconds: 5
+          exec:
+            command:
+            - bash
+            - -c
+            - ./bin/livenessProbe.sh
         volumeMounts:
           - name: "nifidata"
             mountPath: /opt/nifi/data
@@ -466,6 +389,19 @@ spec:
           - name: "generate-user"
             mountPath: /opt/nifi/nifi-current/config-data/certs/generate_user.sh
             subPath: "generate_user.sh"
+          - name: "readinessprobe"
+            mountPath : /opt/nifi/nifi-current/bin/readinessProbe.sh
+            subPath: "readinessProbe.sh"
+          - name: "livenessprobe"
+            mountPath : /opt/nifi/nifi-current/bin/livenessProbe.sh
+            subPath: "livenessProbe.sh"
+          - name: "restfunctions"
+            mountPath : /opt/nifi/nifi-current/bin/restFunctions.sh
+            subPath: "restFunctions.sh"
+          - name: "gracefullnodeshutdown"
+            mountPath : /opt/nifi/nifi-current/bin/gracefullNodeShutdown.sh
+            subPath: "gracefullNodeShutdown.sh"
+
           {{- range $secret := .Values.secrets }}
             {{- if $secret.mountPath }}
               {{- if $secret.keys }}
@@ -600,6 +536,41 @@ spec:
             - key: "generate_user.sh"
               path: "generate_user.sh"
           defaultMode: 0555
+      - name: "livenessprobe"
+        configMap:
+          name: {{ template "apache-nifi.fullname" . }}-config
+          items:
+            - key: "livenessProbe.sh"
+              path: "livenessProbe.sh"
+          defaultMode: 0555
+      - name: "readinessprobe"
+        configMap:
+          name: {{ template "apache-nifi.fullname" . }}-config
+          items:
+            - key: "readinessProbe.sh"
+              path: "readinessProbe.sh"
+          defaultMode: 0555
+      - name: "restfunctions"
+        configMap:
+          name: {{ template "apache-nifi.fullname" . }}-config
+          items:
+            - key: "restFunctions.sh"
+              path: "restFunctions.sh"
+          defaultMode: 0555
+      - name: "gracefullnodeshutdown"
+        configMap:
+          name: {{ template "apache-nifi.fullname" . }}-config
+          items:
+            - key: "gracefullNodeShutdown.sh"
+              path: "gracefullNodeShutdown.sh"
+          defaultMode: 0555
+      - name: "generate-certs"
+        configMap:
+          name: {{ template "apache-nifi.fullname" . }}-config
+          items:
+            - key: "generateCerts.sh"
+              path: "generateCerts.sh"
+          defaultMode: 0555
       {{- range .Values.secrets }}
       - name: {{ include "apache-nifi.fullname" $ }}-{{ .name }}
         secret:
@@ -647,5 +618,6 @@ spec:
         resources:
           requests:
             storage: {{ .Values.persistence.nifidata.size }}
+{{- end }}
 {{- end }}
 {{- end }}

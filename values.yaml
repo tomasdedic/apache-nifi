@@ -30,7 +30,7 @@ zookeeper:
 
 
 # Number of nifi nodes
-replicaCount: 1
+replicaCount: 2
 # predefined server identities, for scaling (hard to be done) its easier to define tls certs for nodes in advance
 predefinedNodeIdentitiesCount: 5
 
@@ -88,6 +88,7 @@ properties:
   webProxyHost: nifi.apps.oshi43.csas.elostech.cz
   clusterPort: 6007
   clusterSecure: true # set to true if ldap is enabled
+  regenerateCertificates: false # set true to delete and create certificates
   needClientAuth: true
   siteToSite:
     port: 10000
@@ -114,7 +115,7 @@ properties:
 
 # Nifi User Authentication
 auth:
-  admin: CN=admin, OU=NIFI
+  admin: "CN=admin, OU=NIFI"
   SSL:
     keystorePasswd: env:PASS
     truststorePasswd: env:PASS
@@ -248,7 +249,7 @@ extraVolumes: []
 ## Extra containers
 extraContainers: []
 
-terminationGracePeriodSeconds: 30
+terminationGracePeriodSeconds: 60
 
 ## Extra environment variables that will be pass onto deployment pods
 env: []
@@ -309,12 +310,11 @@ zookeeper:
   ## If the Zookeeper Chart is disabled a URL and port are required to connect
   url: ""
   port: 2181
-  replicaCount: 3
+  replicaCount: 1
   resources:
     requests:
       memory: 256Mi
       cpu: 80m
-  replicaCount: 1
 
 # ------------------------------------------------------------------------------
 # Nifi registry:
@@ -384,3 +384,5 @@ global:
         repository: apache/nifi-toolkit
         tag: "1.13.2"
         pullPolicy: IfNotPresent
+# predefined server identities, for scaling (hard to be done) its easier to define tls certs for nodes in advance
+    predefinedNodeIdentitiesCount: 5

@@ -1,0 +1,1162 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+1	charts/nifi-registry/configs/bootstrap.conf	/^java.arg.1=-Dorg.apache.jasper.compiler.disablejsr199=true$/;"	k
+1	configs/bootstrap.conf	/^java.arg.1=-Dorg.apache.jasper.compiler.disablejsr199=true$/;"	k
+14	configs/bootstrap.conf	/^java.arg.14=-Djava.awt.headless=true$/;"	k
+15	configs/bootstrap.conf	/^java.arg.15=-Djava.security.egd=file:\/dev\/urandom$/;"	k
+2	charts/nifi-registry/configs/bootstrap.conf	/^java.arg.2=-Xms512m$/;"	k
+2	configs/bootstrap.conf	/^java.arg.2=-Xms{{.Values.jvmMemory}}$/;"	k
+3	charts/nifi-registry/configs/bootstrap.conf	/^java.arg.3=-Xmx512m$/;"	k
+3	configs/bootstrap.conf	/^java.arg.3=-Xmx{{.Values.jvmMemory}}$/;"	k
+4	charts/nifi-registry/configs/bootstrap.conf	/^java.arg.4=-Djava.net.preferIPv4Stack=true$/;"	k
+4	configs/bootstrap.conf	/^java.arg.4=-Djava.net.preferIPv4Stack=true$/;"	k
+5	charts/nifi-registry/configs/bootstrap.conf	/^java.arg.5=-Dsun.net.http.allowRestrictedHeaders=true$/;"	k
+5	configs/bootstrap.conf	/^java.arg.5=-Dsun.net.http.allowRestrictedHeaders=true$/;"	k
+6	charts/nifi-registry/configs/bootstrap.conf	/^java.arg.6=-Djava.protocol.handler.pkgs=sun.net.www.protocol$/;"	k
+6	configs/bootstrap.conf	/^java.arg.6=-Djava.protocol.handler.pkgs=sun.net.www.protocol$/;"	k
+Add Helm repository	README.md	/^### Add Helm repository$/;"	S
+Adjust permissions of persistent volume mountpoint	charts/zookeeper/README.md	/^### Adjust permissions of persistent volume mountpoint$/;"	S
+Checklist	.github/PULL_REQUEST_TEMPLATE.md	/^#### Checklist$/;"	t
+Common parameters	charts/zookeeper/README.md	/^### Common parameters$/;"	S
+Configuration	README.md	/^## Configuration$/;"	s
+Configuration and installation details	charts/zookeeper/README.md	/^## Configuration and installation details$/;"	s
+Configure prometheus monitoring	README.md	/^#### Configure prometheus monitoring$/;"	t
+Credits	README.md	/^## Credits$/;"	s
+Data Log Directory	charts/zookeeper/README.md	/^### Data Log Directory$/;"	S
+Exposure parameters	charts/zookeeper/README.md	/^### Exposure parameters$/;"	S
+Helm Chart for Apache NiFi	README.md	/^# Helm Chart for Apache NiFi$/;"	c
+Installation	README.md	/^## Installation$/;"	s
+Installing the Chart	charts/zookeeper/README.md	/^## Installing the Chart$/;"	s
+Introduction	charts/zookeeper/README.md	/^## Introduction$/;"	s
+License	README.md	/^## License$/;"	s
+Log level	charts/zookeeper/README.md	/^### Log level$/;"	S
+Metrics parameters	charts/zookeeper/README.md	/^### Metrics parameters$/;"	S
+Parameters	charts/zookeeper/README.md	/^## Parameters$/;"	s
+Persistence	charts/zookeeper/README.md	/^## Persistence$/;"	s
+Persistence parameters	charts/zookeeper/README.md	/^### Persistence parameters$/;"	S
+Prerequisites	README.md	/^## Prerequisites$/;"	s
+Prerequisites	charts/zookeeper/README.md	/^## Prerequisites$/;"	s
+Production configuration	charts/zookeeper/README.md	/^### Production configuration$/;"	S
+SessionLoad	Session.vim	/^let SessionLoad = 1$/;"	v
+Special notes for your reviewer:	.github/PULL_REQUEST_TEMPLATE.md	/^#### Special notes for your reviewer:$/;"	t
+Statefulset parameters	charts/zookeeper/README.md	/^### Statefulset parameters$/;"	S
+TL;DR	charts/zookeeper/README.md	/^## TL;DR$/;"	s
+To 1.0.0	charts/zookeeper/README.md	/^### To 1.0.0$/;"	S
+To 2.0.0	charts/zookeeper/README.md	/^### To 2.0.0$/;"	S
+To 3.0.0	charts/zookeeper/README.md	/^### To 3.0.0$/;"	S
+To 5.21.0	charts/zookeeper/README.md	/^### To 5.21.0$/;"	S
+Uninstallation	README.md	/^## Uninstallation$/;"	s
+Uninstalling the Chart	charts/zookeeper/README.md	/^## Uninstalling the Chart$/;"	s
+Upgrading	charts/zookeeper/README.md	/^## Upgrading$/;"	s
+Volume Permissions parameters	charts/zookeeper/README.md	/^### Volume Permissions parameters$/;"	S
+What this PR does / why we need it:	.github/PULL_REQUEST_TEMPLATE.md	/^#### What this PR does \/ why we need it:$/;"	t
+Which issue this PR fixes	.github/PULL_REQUEST_TEMPLATE.md	/^#### Which issue this PR fixes$/;"	t
+ZooKeeper	charts/zookeeper/README.md	/^# ZooKeeper$/;"	c
+Zookeeper chart parameters	charts/zookeeper/README.md	/^### Zookeeper chart parameters$/;"	S
+[Rolling VS Immutable tags](https://docs.bitnami.com/containers/how-to/understand-rolling-tags-containers/)	charts/zookeeper/README.md	/^### [Rolling VS Immutable tags](https:\/\/docs.bitnami.com\/containers\/how-to\/understand-rolli/;"	S
+affinity	charts/nifi-registry/values.yaml	/^affinity: {}$/;"	s
+affinity	charts/zookeeper/values-production.yaml	/^affinity: {}$/;"	s
+affinity	charts/zookeeper/values.yaml	/^affinity: {}$/;"	s
+allowAnonymousLogin	charts/zookeeper/values-production.yaml	/^allowAnonymousLogin: true$/;"	s
+allowAnonymousLogin	charts/zookeeper/values.yaml	/^allowAnonymousLogin: true$/;"	s
+allowHostDirVolumePlugin	charts/nifi-ca/templates/scc.yaml	/^allowHostDirVolumePlugin: false$/;"	s
+allowHostDirVolumePlugin	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^allowHostDirVolumePlugin: false$/;"	s
+allowHostDirVolumePlugin	render/nifi/templates/scc.yaml	/^allowHostDirVolumePlugin: false$/;"	s
+allowHostDirVolumePlugin	templates/scc.yaml	/^allowHostDirVolumePlugin: false$/;"	s
+allowHostIPC	charts/nifi-ca/templates/scc.yaml	/^allowHostIPC: false$/;"	s
+allowHostIPC	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^allowHostIPC: false$/;"	s
+allowHostIPC	render/nifi/templates/scc.yaml	/^allowHostIPC: false$/;"	s
+allowHostIPC	templates/scc.yaml	/^allowHostIPC: false$/;"	s
+allowHostNetwork	charts/nifi-ca/templates/scc.yaml	/^allowHostNetwork: false$/;"	s
+allowHostNetwork	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^allowHostNetwork: false$/;"	s
+allowHostNetwork	render/nifi/templates/scc.yaml	/^allowHostNetwork: false$/;"	s
+allowHostNetwork	templates/scc.yaml	/^allowHostNetwork: false$/;"	s
+allowHostPID	charts/nifi-ca/templates/scc.yaml	/^allowHostPID: false$/;"	s
+allowHostPID	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^allowHostPID: false$/;"	s
+allowHostPID	render/nifi/templates/scc.yaml	/^allowHostPID: false$/;"	s
+allowHostPID	templates/scc.yaml	/^allowHostPID: false$/;"	s
+allowHostPorts	charts/nifi-ca/templates/scc.yaml	/^allowHostPorts: false$/;"	s
+allowHostPorts	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^allowHostPorts: false$/;"	s
+allowHostPorts	render/nifi/templates/scc.yaml	/^allowHostPorts: false$/;"	s
+allowHostPorts	templates/scc.yaml	/^allowHostPorts: false$/;"	s
+allowPrivilegeEscalation	charts/nifi-ca/templates/scc.yaml	/^allowPrivilegeEscalation: true$/;"	s
+allowPrivilegeEscalation	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^allowPrivilegeEscalation: true$/;"	s
+allowPrivilegeEscalation	render/nifi/templates/scc.yaml	/^allowPrivilegeEscalation: true$/;"	s
+allowPrivilegeEscalation	templates/scc.yaml	/^allowPrivilegeEscalation: true$/;"	s
+allowPrivilegedContainer	charts/nifi-ca/templates/scc.yaml	/^allowPrivilegedContainer: false$/;"	s
+allowPrivilegedContainer	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^allowPrivilegedContainer: false$/;"	s
+allowPrivilegedContainer	render/nifi/templates/scc.yaml	/^allowPrivilegedContainer: false$/;"	s
+allowPrivilegedContainer	templates/scc.yaml	/^allowPrivilegedContainer: false$/;"	s
+allowedCapabilities	charts/nifi-ca/templates/scc.yaml	/^allowedCapabilities: null$/;"	s
+allowedCapabilities	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^allowedCapabilities: null$/;"	s
+allowedCapabilities	render/nifi/templates/scc.yaml	/^allowedCapabilities: null$/;"	s
+allowedCapabilities	templates/scc.yaml	/^allowedCapabilities: null$/;"	s
+annotations	charts/zookeeper/Chart.yaml	/^annotations:$/;"	s
+apiVersion	Chart.yaml	/^apiVersion: v2$/;"	s
+apiVersion	charts/nifi-ca/Chart.yaml	/^apiVersion: v2$/;"	s
+apiVersion	charts/nifi-ca/templates/deployment.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	charts/nifi-ca/templates/pv.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/nifi-ca/templates/scc.yaml	/^apiVersion: security.openshift.io\/v1$/;"	s
+apiVersion	charts/nifi-ca/templates/service.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/nifi-ca/templates/serviceaccount.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/nifi-ca/templates/volume.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/nifi-registry/Chart.yaml	/^apiVersion: v2$/;"	s
+apiVersion	charts/nifi-registry/templates/configmap.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/nifi-registry/templates/ingress.yaml	/^apiVersion: extensions\/v1beta1$/;"	s
+apiVersion	charts/nifi-registry/templates/ingress.yaml	/^apiVersion: networking.k8s.io\/v1beta1$/;"	s
+apiVersion	charts/nifi-registry/templates/pv.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/nifi-registry/templates/route.yaml	/^apiVersion: route.openshift.io\/v1$/;"	s
+apiVersion	charts/nifi-registry/templates/secret.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/nifi-registry/templates/service.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/nifi-registry/templates/serviceaccount.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/nifi-registry/templates/statefulset.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	charts/nifi-registry/templates/tests/test-connection.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/zookeeper/Chart.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/zookeeper/templates/configmap.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/zookeeper/templates/metrics-svc.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/zookeeper/templates/networkpolicy.yaml	/^apiVersion: networking.k8s.io\/v1$/;"	s
+apiVersion	charts/zookeeper/templates/poddisruptionbudget.yaml	/^apiVersion: policy\/v1beta1$/;"	s
+apiVersion	charts/zookeeper/templates/prometheusrules.yaml	/^apiVersion: monitoring.coreos.com\/v1$/;"	s
+apiVersion	charts/zookeeper/templates/secrets.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/zookeeper/templates/serviceaccount.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/zookeeper/templates/servicemonitor.yaml	/^apiVersion: monitoring.coreos.com\/v1$/;"	s
+apiVersion	charts/zookeeper/templates/statefulset.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	charts/zookeeper/templates/svc-headless.yaml	/^apiVersion: v1$/;"	s
+apiVersion	charts/zookeeper/templates/svc.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/apps_v1_deployment_nifi-ca.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	kustomize/apps_v1_statefulset_nifi-registry.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	kustomize/apps_v1_statefulset_nifi.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	kustomize/policy_v1beta1_poddisruptionbudget_nifi-zookeeper.yaml	/^apiVersion: policy\/v1beta1$/;"	s
+apiVersion	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^apiVersion: security.openshift.io\/v1$/;"	s
+apiVersion	kustomize/v1_configmap_nifi-config.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/v1_persistentvolumeclaim_nifi-ca.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/v1_pod_nifi-registry-test-connection.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/v1_secret_nifi-registry-config.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/v1_service_nifi-ca.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/v1_service_nifi-headless.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/v1_service_nifi-registry.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/v1_service_nifi-zookeeper-headless.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/v1_service_nifi-zookeeper.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/v1_service_nifi.yaml	/^apiVersion: v1$/;"	s
+apiVersion	kustomize/v1_serviceaccount_nifi-registry.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/charts/ca/templates/deployment.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	render/nifi/charts/ca/templates/service.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/charts/ca/templates/volume.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/charts/registry/templates/configmap.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/charts/registry/templates/route.yaml	/^apiVersion: route.openshift.io\/v1$/;"	s
+apiVersion	render/nifi/charts/registry/templates/secret.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/charts/registry/templates/service.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/charts/registry/templates/statefulset.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	render/nifi/charts/registry/templates/tests/test-connection.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/charts/zookeeper/templates/poddisruptionbudget.yaml	/^apiVersion: policy\/v1beta1$/;"	s
+apiVersion	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	render/nifi/charts/zookeeper/templates/svc-headless.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/charts/zookeeper/templates/svc.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/templates/clusterolebinding.yaml	/^apiVersion: rbac.authorization.k8s.io\/v1$/;"	s
+apiVersion	render/nifi/templates/clusterrole.yaml	/^apiVersion: rbac.authorization.k8s.io\/v1$/;"	s
+apiVersion	render/nifi/templates/configmap.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/templates/networkpolicy.yaml	/^apiVersion: networking.k8s.io\/v1$/;"	s
+apiVersion	render/nifi/templates/route.yaml	/^apiVersion: route.openshift.io\/v1$/;"	s
+apiVersion	render/nifi/templates/scc.yaml	/^apiVersion: security.openshift.io\/v1$/;"	s
+apiVersion	render/nifi/templates/service.yaml	/^apiVersion: v1$/;"	s
+apiVersion	render/nifi/templates/statefulset.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	templates/clusterolebinding.yaml	/^apiVersion: rbac.authorization.k8s.io\/v1$/;"	s
+apiVersion	templates/clusterrole.yaml	/^apiVersion: rbac.authorization.k8s.io\/v1$/;"	s
+apiVersion	templates/configmap.yaml	/^apiVersion: v1$/;"	s
+apiVersion	templates/ingress.yaml	/^apiVersion: extensions\/v1beta1$/;"	s
+apiVersion	templates/networkpolicy.yaml	/^apiVersion: networking.k8s.io\/v1$/;"	s
+apiVersion	templates/pv.yaml	/^apiVersion: v1$/;"	s
+apiVersion	templates/route.yaml	/^apiVersion: route.openshift.io\/v1$/;"	s
+apiVersion	templates/scc.yaml	/^apiVersion: security.openshift.io\/v1$/;"	s
+apiVersion	templates/service.yaml	/^apiVersion: v1$/;"	s
+apiVersion	templates/serviceaccount.yaml	/^apiVersion: v1$/;"	s
+apiVersion	templates/servicemonitor.yaml	/^apiVersion: monitoring.coreos.com\/v1$/;"	s
+apiVersion	templates/statefulset.yaml	/^apiVersion: apps\/v1$/;"	s
+apiVersion	templates/storageclass.yaml	/^apiVersion: storage.k8s.io\/v1$/;"	s
+appVersion	Chart.yaml	/^appVersion: 1.13.3$/;"	s
+appVersion	charts/nifi-ca/Chart.yaml	/^appVersion: 1.11.4$/;"	s
+appVersion	charts/nifi-registry/Chart.yaml	/^appVersion: 0.6.0$/;"	s
+appVersion	charts/zookeeper/Chart.yaml	/^appVersion: 3.6.2$/;"	s
+app_port	charts/nifi-ca/values.yaml	/^app_port: 9090$/;"	s
+as	charts/nifi-registry/configs/bootstrap.conf	/^run.as=$/;"	k
+as	configs/bootstrap.conf	/^run.as=$/;"	k
+attempts	configs/bootstrap.conf	/^notification.max.attempts=5$/;"	k
+auth	charts/zookeeper/values-production.yaml	/^auth:$/;"	s
+auth	charts/zookeeper/values.yaml	/^auth:$/;"	s
+auth	values-oaz-dev.yaml	/^auth:$/;"	s
+auth	values.yaml	/^auth:$/;"	s
+autopurge	charts/zookeeper/values-production.yaml	/^autopurge:$/;"	s
+autopurge	charts/zookeeper/values.yaml	/^autopurge:$/;"	s
+autopurge.purgeInterval	configs/zookeeper.properties	/^autopurge.purgeInterval=24$/;"	k
+autopurge.snapRetainCount	configs/zookeeper.properties	/^autopurge.snapRetainCount=30$/;"	k
+ca	values-oaz-dev.yaml	/^ca:$/;"	s
+ca	values.yaml	/^ca:$/;"	s
+clusterDomain	charts/zookeeper/values-production.yaml	/^clusterDomain: cluster.local$/;"	s
+clusterDomain	charts/zookeeper/values.yaml	/^clusterDomain: cluster.local$/;"	s
+commonAnnotations	charts/zookeeper/values-production.yaml	/^commonAnnotations: {}$/;"	s
+commonAnnotations	charts/zookeeper/values.yaml	/^commonAnnotations: {}$/;"	s
+commonLabels	charts/zookeeper/values-production.yaml	/^commonLabels: {}$/;"	s
+commonLabels	charts/zookeeper/values.yaml	/^commonLabels: {}$/;"	s
+data	charts/nifi-registry/templates/configmap.yaml	/^data:$/;"	s
+data	charts/nifi-registry/templates/secret.yaml	/^data:$/;"	s
+data	charts/zookeeper/templates/configmap.yaml	/^data:$/;"	s
+data	charts/zookeeper/templates/secrets.yaml	/^data:$/;"	s
+data	kustomize/v1_configmap_nifi-config.yaml	/^data:$/;"	s
+data	kustomize/v1_secret_nifi-registry-config.yaml	/^data:$/;"	s
+data	render/nifi/charts/registry/templates/configmap.yaml	/^data:$/;"	s
+data	render/nifi/charts/registry/templates/secret.yaml	/^data:$/;"	s
+data	render/nifi/templates/configmap.yaml	/^data:$/;"	s
+data	templates/configmap.yaml	/^data:$/;"	s
+dataDir	configs/zookeeper.properties	/^dataDir=.\/state\/zookeeper$/;"	k
+dataLogDir	charts/zookeeper/values-production.yaml	/^dataLogDir: ""$/;"	s
+dataLogDir	charts/zookeeper/values.yaml	/^dataLogDir: ""$/;"	s
+defaultAddCapabilities	charts/nifi-ca/templates/scc.yaml	/^defaultAddCapabilities: null$/;"	s
+defaultAddCapabilities	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^defaultAddCapabilities: null$/;"	s
+defaultAddCapabilities	render/nifi/templates/scc.yaml	/^defaultAddCapabilities: null$/;"	s
+defaultAddCapabilities	templates/scc.yaml	/^defaultAddCapabilities: null$/;"	s
+deleteNode	configs/offloadNode.sh	/^deleteNode() {$/;"	f
+dependencies	Chart.yaml	/^dependencies:$/;"	s
+description	Chart.yaml	/^description: Apache NIFI, heavily aimed to deploy on Openshift. Based on https:\/\/github.com\/c/;"	s
+description	charts/nifi-ca/Chart.yaml	/^description: A Helm chart to deploy ca server to generate self-signed certificates$/;"	s
+description	charts/nifi-registry/Chart.yaml	/^description: A subproject of Apache NiFi to store and manage shared resources.$/;"	s
+description	charts/zookeeper/Chart.yaml	/^description: A centralized service for maintaining configuration information, naming,$/;"	s
+dir	charts/nifi-registry/configs/bootstrap.conf	/^conf.dir=.\/conf$/;"	k
+dir	charts/nifi-registry/configs/bootstrap.conf	/^docs.dir=.\/docs$/;"	k
+dir	charts/nifi-registry/configs/bootstrap.conf	/^lib.dir=.\/lib$/;"	k
+dir	charts/nifi-registry/configs/bootstrap.conf	/^working.dir=$/;"	k
+dir	configs/bootstrap.conf	/^conf.dir=.\/conf$/;"	k
+dir	configs/bootstrap.conf	/^lib.dir=.\/lib$/;"	k
+env	values-oaz-dev.yaml	/^env: []$/;"	s
+env	values.yaml	/^env: []$/;"	s
+envFrom	values-oaz-dev.yaml	/^envFrom: []$/;"	s
+envFrom	values.yaml	/^envFrom: []$/;"	s
+extraContainers	values-oaz-dev.yaml	/^extraContainers: []$/;"	s
+extraContainers	values.yaml	/^extraContainers: []$/;"	s
+extraVolumeMounts	values-oaz-dev.yaml	/^extraVolumeMounts: []$/;"	s
+extraVolumeMounts	values.yaml	/^extraVolumeMounts: []$/;"	s
+extraVolumes	values-oaz-dev.yaml	/^extraVolumes: []$/;"	s
+extraVolumes	values.yaml	/^extraVolumes: []$/;"	s
+file	configs/bootstrap.conf	/^notification.services.file=.\/conf\/bootstrap-notification-services.xml$/;"	k
+fourlwCommandsWhitelist	charts/zookeeper/values-production.yaml	/^fourlwCommandsWhitelist: srvr, mntr, ruok$/;"	s
+fourlwCommandsWhitelist	charts/zookeeper/values.yaml	/^fourlwCommandsWhitelist: srvr, mntr, ruok$/;"	s
+fsGroup	charts/nifi-ca/templates/scc.yaml	/^fsGroup:$/;"	s
+fsGroup	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^fsGroup:$/;"	s
+fsGroup	render/nifi/templates/scc.yaml	/^fsGroup:$/;"	s
+fsGroup	templates/scc.yaml	/^fsGroup:$/;"	s
+fullnameOverride	charts/nifi-registry/values.yaml	/^fullnameOverride: ""$/;"	s
+g:this_obsession	Session.vim	/^let g:this_obsession = v:this_session$/;"	v
+g:this_session	Session.vim	/^let g:this_session = v:this_session$/;"	v
+generate_admin_cert	configs/generateCerts.sh	/^generate_admin_cert() {$/;"	f
+generate_node_cert	configs/generateCerts.sh	/^generate_node_cert() {$/;"	f
+global	values-oaz-dev.yaml	/^global:$/;"	s
+global	values.yaml	/^global:$/;"	s
+groups	charts/nifi-ca/templates/scc.yaml	/^groups: []$/;"	s
+groups	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^groups: []$/;"	s
+groups	render/nifi/templates/scc.yaml	/^groups: []$/;"	s
+groups	templates/scc.yaml	/^groups: []$/;"	s
+headless	values-oaz-dev.yaml	/^headless:$/;"	s
+headless	values.yaml	/^headless:$/;"	s
+heapSize	charts/zookeeper/values-production.yaml	/^heapSize: 1024$/;"	s
+heapSize	charts/zookeeper/values.yaml	/^heapSize: 1024$/;"	s
+home	Chart.yaml	/^home: https:\/\/nifi.apache.org\/$/;"	s
+home	charts/nifi-ca/Chart.yaml	/^home: https:\/\/nifi.apache.org\/$/;"	s
+home	charts/zookeeper/Chart.yaml	/^home: https:\/\/github.com\/bitnami\/charts\/tree\/master\/bitnami\/zookeeper$/;"	s
+icon	Chart.yaml	/^icon: data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAqCAIAAABOVI4xAAAACXBIWXMAAC4jAAAuIwF/;"	s
+icon	charts/nifi-ca/Chart.yaml	/^icon: https:\/\/svn.apache.org\/repos\/asf\/nifi\/site\/trunk\/images\/niFi-logo-horizontal-scal/;"	s
+icon	charts/zookeeper/Chart.yaml	/^icon: https:\/\/bitnami.com\/assets\/stacks\/zookeeper\/img\/zookeeper-stack-110x117.png$/;"	s
+image	charts/nifi-ca/values.yaml	/^image:$/;"	s
+image	charts/nifi-registry/values.yaml	/^image:$/;"	s
+image	charts/zookeeper/values-production.yaml	/^image:$/;"	s
+image	charts/zookeeper/values.yaml	/^image:$/;"	s
+image	values-oaz-dev.yaml	/^image:$/;"	s
+image	values.yaml	/^image:$/;"	s
+imagePullSecrets	charts/nifi-registry/values.yaml	/^imagePullSecrets: []$/;"	s
+ingress	charts/nifi-registry/values.yaml	/^ingress:$/;"	s
+ingress	values-oaz-dev.yaml	/^ingress:$/;"	s
+ingress	values.yaml	/^ingress:$/;"	s
+initContainers	values-oaz-dev.yaml	/^initContainers: {}$/;"	s
+initContainers	values.yaml	/^initContainers: {}$/;"	s
+initLimit	charts/zookeeper/values-production.yaml	/^initLimit: 10$/;"	s
+initLimit	charts/zookeeper/values.yaml	/^initLimit: 10$/;"	s
+initLimit	configs/zookeeper.properties	/^initLimit=10$/;"	k
+java	charts/nifi-registry/configs/bootstrap.conf	/^java=java$/;"	k
+java	configs/bootstrap.conf	/^java=java$/;"	k
+jobs	.github/workflows/stale.yml	/^jobs:$/;"	s
+jvmMemory	values-oaz-dev.yaml	/^jvmMemory: 1024m$/;"	s
+jvmMemory	values.yaml	/^jvmMemory: 1200m$/;"	s
+key	charts/nifi-registry/configs/bootstrap.conf	/^nifi.registry.bootstrap.sensitive.key=/;"	k
+key	configs/bootstrap.conf	/^nifi.bootstrap.sensitive.key=$/;"	k
+keywords	Chart.yaml	/^keywords:$/;"	s
+keywords	charts/nifi-ca/Chart.yaml	/^keywords:$/;"	s
+keywords	charts/zookeeper/Chart.yaml	/^keywords:$/;"	s
+kind	charts/nifi-ca/templates/deployment.yaml	/^kind: Deployment$/;"	s
+kind	charts/nifi-ca/templates/pv.yaml	/^kind: PersistentVolume$/;"	s
+kind	charts/nifi-ca/templates/scc.yaml	/^kind: SecurityContextConstraints$/;"	s
+kind	charts/nifi-ca/templates/service.yaml	/^kind: Service$/;"	s
+kind	charts/nifi-ca/templates/serviceaccount.yaml	/^kind: ServiceAccount$/;"	s
+kind	charts/nifi-ca/templates/volume.yaml	/^kind: PersistentVolumeClaim$/;"	s
+kind	charts/nifi-registry/templates/configmap.yaml	/^kind: ConfigMap$/;"	s
+kind	charts/nifi-registry/templates/ingress.yaml	/^kind: Ingress$/;"	s
+kind	charts/nifi-registry/templates/pv.yaml	/^kind: PersistentVolume$/;"	s
+kind	charts/nifi-registry/templates/route.yaml	/^kind: Route$/;"	s
+kind	charts/nifi-registry/templates/secret.yaml	/^kind: Secret$/;"	s
+kind	charts/nifi-registry/templates/service.yaml	/^kind: Service$/;"	s
+kind	charts/nifi-registry/templates/serviceaccount.yaml	/^kind: ServiceAccount$/;"	s
+kind	charts/nifi-registry/templates/statefulset.yaml	/^kind: StatefulSet$/;"	s
+kind	charts/nifi-registry/templates/tests/test-connection.yaml	/^kind: Pod$/;"	s
+kind	charts/zookeeper/templates/configmap.yaml	/^kind: ConfigMap$/;"	s
+kind	charts/zookeeper/templates/metrics-svc.yaml	/^kind: Service$/;"	s
+kind	charts/zookeeper/templates/networkpolicy.yaml	/^kind: NetworkPolicy$/;"	s
+kind	charts/zookeeper/templates/poddisruptionbudget.yaml	/^kind: PodDisruptionBudget$/;"	s
+kind	charts/zookeeper/templates/prometheusrules.yaml	/^kind: PrometheusRule$/;"	s
+kind	charts/zookeeper/templates/secrets.yaml	/^kind: Secret$/;"	s
+kind	charts/zookeeper/templates/serviceaccount.yaml	/^kind: ServiceAccount$/;"	s
+kind	charts/zookeeper/templates/servicemonitor.yaml	/^kind: ServiceMonitor$/;"	s
+kind	charts/zookeeper/templates/statefulset.yaml	/^kind: StatefulSet$/;"	s
+kind	charts/zookeeper/templates/svc-headless.yaml	/^kind: Service$/;"	s
+kind	charts/zookeeper/templates/svc.yaml	/^kind: Service$/;"	s
+kind	kustomize/apps_v1_deployment_nifi-ca.yaml	/^kind: Deployment$/;"	s
+kind	kustomize/apps_v1_statefulset_nifi-registry.yaml	/^kind: StatefulSet$/;"	s
+kind	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^kind: StatefulSet$/;"	s
+kind	kustomize/apps_v1_statefulset_nifi.yaml	/^kind: StatefulSet$/;"	s
+kind	kustomize/policy_v1beta1_poddisruptionbudget_nifi-zookeeper.yaml	/^kind: PodDisruptionBudget$/;"	s
+kind	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^kind: SecurityContextConstraints$/;"	s
+kind	kustomize/v1_configmap_nifi-config.yaml	/^kind: ConfigMap$/;"	s
+kind	kustomize/v1_persistentvolumeclaim_nifi-ca.yaml	/^kind: PersistentVolumeClaim$/;"	s
+kind	kustomize/v1_pod_nifi-registry-test-connection.yaml	/^kind: Pod$/;"	s
+kind	kustomize/v1_secret_nifi-registry-config.yaml	/^kind: Secret$/;"	s
+kind	kustomize/v1_service_nifi-ca.yaml	/^kind: Service$/;"	s
+kind	kustomize/v1_service_nifi-headless.yaml	/^kind: Service$/;"	s
+kind	kustomize/v1_service_nifi-registry.yaml	/^kind: Service$/;"	s
+kind	kustomize/v1_service_nifi-zookeeper-headless.yaml	/^kind: Service$/;"	s
+kind	kustomize/v1_service_nifi-zookeeper.yaml	/^kind: Service$/;"	s
+kind	kustomize/v1_service_nifi.yaml	/^kind: Service$/;"	s
+kind	kustomize/v1_serviceaccount_nifi-registry.yaml	/^kind: ServiceAccount$/;"	s
+kind	render/nifi/charts/ca/templates/deployment.yaml	/^kind: Deployment$/;"	s
+kind	render/nifi/charts/ca/templates/service.yaml	/^kind: Service$/;"	s
+kind	render/nifi/charts/ca/templates/volume.yaml	/^kind: PersistentVolumeClaim$/;"	s
+kind	render/nifi/charts/registry/templates/configmap.yaml	/^kind: ConfigMap$/;"	s
+kind	render/nifi/charts/registry/templates/route.yaml	/^kind: Route$/;"	s
+kind	render/nifi/charts/registry/templates/secret.yaml	/^kind: Secret$/;"	s
+kind	render/nifi/charts/registry/templates/service.yaml	/^kind: Service$/;"	s
+kind	render/nifi/charts/registry/templates/statefulset.yaml	/^kind: StatefulSet$/;"	s
+kind	render/nifi/charts/registry/templates/tests/test-connection.yaml	/^kind: Pod$/;"	s
+kind	render/nifi/charts/zookeeper/templates/poddisruptionbudget.yaml	/^kind: PodDisruptionBudget$/;"	s
+kind	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^kind: StatefulSet$/;"	s
+kind	render/nifi/charts/zookeeper/templates/svc-headless.yaml	/^kind: Service$/;"	s
+kind	render/nifi/charts/zookeeper/templates/svc.yaml	/^kind: Service$/;"	s
+kind	render/nifi/templates/clusterolebinding.yaml	/^kind: ClusterRoleBinding$/;"	s
+kind	render/nifi/templates/clusterrole.yaml	/^kind: ClusterRole$/;"	s
+kind	render/nifi/templates/configmap.yaml	/^kind: ConfigMap$/;"	s
+kind	render/nifi/templates/networkpolicy.yaml	/^kind: NetworkPolicy$/;"	s
+kind	render/nifi/templates/route.yaml	/^kind: Route$/;"	s
+kind	render/nifi/templates/scc.yaml	/^kind: SecurityContextConstraints$/;"	s
+kind	render/nifi/templates/service.yaml	/^kind: Service$/;"	s
+kind	render/nifi/templates/statefulset.yaml	/^kind: StatefulSet$/;"	s
+kind	templates/clusterolebinding.yaml	/^kind: ClusterRoleBinding$/;"	s
+kind	templates/clusterrole.yaml	/^kind: ClusterRole$/;"	s
+kind	templates/configmap.yaml	/^kind: ConfigMap$/;"	s
+kind	templates/ingress.yaml	/^kind: Ingress$/;"	s
+kind	templates/networkpolicy.yaml	/^kind: NetworkPolicy$/;"	s
+kind	templates/pv.yaml	/^kind: PersistentVolume$/;"	s
+kind	templates/route.yaml	/^kind: Route$/;"	s
+kind	templates/scc.yaml	/^kind: SecurityContextConstraints$/;"	s
+kind	templates/service.yaml	/^kind: Service$/;"	s
+kind	templates/serviceaccount.yaml	/^kind: ServiceAccount$/;"	s
+kind	templates/servicemonitor.yaml	/^kind: ServiceMonitor$/;"	s
+kind	templates/statefulset.yaml	/^kind: StatefulSet$/;"	s
+kind	templates/storageclass.yaml	/^kind: StorageClass$/;"	s
+listenOnAllIPs	charts/zookeeper/values-production.yaml	/^listenOnAllIPs: false$/;"	s
+listenOnAllIPs	charts/zookeeper/values.yaml	/^listenOnAllIPs: false$/;"	s
+livenessProbe	charts/zookeeper/values-production.yaml	/^livenessProbe:$/;"	s
+livenessProbe	charts/zookeeper/values.yaml	/^livenessProbe:$/;"	s
+logLevel	charts/zookeeper/values-production.yaml	/^logLevel: ERROR$/;"	s
+logLevel	charts/zookeeper/values.yaml	/^logLevel: ERROR$/;"	s
+logresources	values-oaz-dev.yaml	/^logresources:$/;"	s
+logresources	values.yaml	/^logresources:$/;"	s
+maintainers	Chart.yaml	/^maintainers:$/;"	s
+maintainers	charts/zookeeper/Chart.yaml	/^maintainers:$/;"	s
+maxClientCnxns	charts/zookeeper/values-production.yaml	/^maxClientCnxns: 60$/;"	s
+maxClientCnxns	charts/zookeeper/values.yaml	/^maxClientCnxns: 60$/;"	s
+maxSessionTimeout	charts/zookeeper/values-production.yaml	/^maxSessionTimeout: 40000$/;"	s
+maxSessionTimeout	charts/zookeeper/values.yaml	/^maxSessionTimeout: 40000$/;"	s
+metadata	charts/nifi-ca/templates/deployment.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-ca/templates/pv.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-ca/templates/scc.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-ca/templates/service.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-ca/templates/serviceaccount.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-ca/templates/volume.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-registry/templates/configmap.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-registry/templates/ingress.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-registry/templates/pv.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-registry/templates/route.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-registry/templates/secret.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-registry/templates/service.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-registry/templates/serviceaccount.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-registry/templates/statefulset.yaml	/^metadata:$/;"	s
+metadata	charts/nifi-registry/templates/tests/test-connection.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/configmap.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/metrics-svc.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/networkpolicy.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/poddisruptionbudget.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/prometheusrules.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/secrets.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/serviceaccount.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/servicemonitor.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/statefulset.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/svc-headless.yaml	/^metadata:$/;"	s
+metadata	charts/zookeeper/templates/svc.yaml	/^metadata:$/;"	s
+metadata	kustomize/apps_v1_deployment_nifi-ca.yaml	/^metadata:$/;"	s
+metadata	kustomize/apps_v1_statefulset_nifi-registry.yaml	/^metadata:$/;"	s
+metadata	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^metadata:$/;"	s
+metadata	kustomize/apps_v1_statefulset_nifi.yaml	/^metadata:$/;"	s
+metadata	kustomize/policy_v1beta1_poddisruptionbudget_nifi-zookeeper.yaml	/^metadata:$/;"	s
+metadata	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_configmap_nifi-config.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_persistentvolumeclaim_nifi-ca.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_pod_nifi-registry-test-connection.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_secret_nifi-registry-config.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_service_nifi-ca.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_service_nifi-headless.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_service_nifi-registry.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_service_nifi-zookeeper-headless.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_service_nifi-zookeeper.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_service_nifi.yaml	/^metadata:$/;"	s
+metadata	kustomize/v1_serviceaccount_nifi-registry.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/ca/templates/deployment.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/ca/templates/service.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/ca/templates/volume.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/registry/templates/configmap.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/registry/templates/route.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/registry/templates/secret.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/registry/templates/service.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/registry/templates/statefulset.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/registry/templates/tests/test-connection.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/zookeeper/templates/poddisruptionbudget.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/zookeeper/templates/svc-headless.yaml	/^metadata:$/;"	s
+metadata	render/nifi/charts/zookeeper/templates/svc.yaml	/^metadata:$/;"	s
+metadata	render/nifi/templates/clusterolebinding.yaml	/^metadata:$/;"	s
+metadata	render/nifi/templates/clusterrole.yaml	/^metadata:$/;"	s
+metadata	render/nifi/templates/configmap.yaml	/^metadata:$/;"	s
+metadata	render/nifi/templates/networkpolicy.yaml	/^metadata:$/;"	s
+metadata	render/nifi/templates/route.yaml	/^metadata:$/;"	s
+metadata	render/nifi/templates/scc.yaml	/^metadata:$/;"	s
+metadata	render/nifi/templates/service.yaml	/^metadata:$/;"	s
+metadata	render/nifi/templates/statefulset.yaml	/^metadata:$/;"	s
+metadata	templates/clusterolebinding.yaml	/^metadata:$/;"	s
+metadata	templates/clusterrole.yaml	/^metadata:$/;"	s
+metadata	templates/configmap.yaml	/^metadata:$/;"	s
+metadata	templates/ingress.yaml	/^metadata:$/;"	s
+metadata	templates/networkpolicy.yaml	/^metadata:$/;"	s
+metadata	templates/pv.yaml	/^metadata:$/;"	s
+metadata	templates/route.yaml	/^metadata:$/;"	s
+metadata	templates/scc.yaml	/^metadata:$/;"	s
+metadata	templates/service.yaml	/^metadata:$/;"	s
+metadata	templates/serviceaccount.yaml	/^metadata:$/;"	s
+metadata	templates/servicemonitor.yaml	/^metadata:$/;"	s
+metadata	templates/statefulset.yaml	/^metadata:$/;"	s
+metadata	templates/storageclass.yaml	/^metadata:$/;"	s
+metrics	charts/zookeeper/values-production.yaml	/^metrics:$/;"	s
+metrics	charts/zookeeper/values.yaml	/^metrics:$/;"	s
+metrics	values-oaz-dev.yaml	/^metrics:$/;"	s
+metrics	values.yaml	/^metrics:$/;"	s
+name	.github/workflows/stale.yml	/^name: Mark stale issues and pull requests$/;"	s
+name	Chart.yaml	/^name: nifi$/;"	s
+name	charts/nifi-ca/Chart.yaml	/^name: nifi-ca$/;"	s
+name	charts/nifi-registry/Chart.yaml	/^name: nifi-registry$/;"	s
+name	charts/zookeeper/Chart.yaml	/^name: zookeeper$/;"	s
+name: "authorizations-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "authorizations-xml-temp"$/;"	e	section:spec
+name: "authorizations-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "authorizations-xml-temp"$/;"	e	section:spec
+name: "authorizations-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "authorizations-xml-temp"$/;"	e	section:spec
+name: "authorizations-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "authorizations-xml-temp"$/;"	e	section:spec
+name: "authorizers-empty"	render/nifi/templates/statefulset.yaml	/^          - name: "authorizers-empty"$/;"	e	section:spec
+name: "authorizers-empty"	render/nifi/templates/statefulset.yaml	/^      - name: "authorizers-empty"$/;"	e	section:spec
+name: "authorizers-empty"	templates/statefulset.yaml	/^          - name: "authorizers-empty"$/;"	e	section:spec
+name: "authorizers-empty"	templates/statefulset.yaml	/^      - name: "authorizers-empty"$/;"	e	section:spec
+name: "authorizers-temp"	render/nifi/templates/statefulset.yaml	/^          - name: "authorizers-temp"$/;"	e	section:spec
+name: "authorizers-temp"	render/nifi/templates/statefulset.yaml	/^      - name: "authorizers-temp"$/;"	e	section:spec
+name: "authorizers-temp"	templates/statefulset.yaml	/^          - name: "authorizers-temp"$/;"	e	section:spec
+name: "authorizers-temp"	templates/statefulset.yaml	/^      - name: "authorizers-temp"$/;"	e	section:spec
+name: "authorizers-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "authorizers-xml-temp"$/;"	e	section:spec
+name: "authorizers-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "authorizers-xml-temp"$/;"	e	section:spec
+name: "authorizers-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "authorizers-xml-temp"$/;"	e	section:spec
+name: "authorizers-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "authorizers-xml-temp"$/;"	e	section:spec
+name: "bootstrap-conf"	render/nifi/templates/statefulset.yaml	/^          - name: "bootstrap-conf"$/;"	e	section:spec
+name: "bootstrap-conf"	render/nifi/templates/statefulset.yaml	/^      - name: "bootstrap-conf"$/;"	e	section:spec
+name: "bootstrap-conf"	templates/statefulset.yaml	/^          - name: "bootstrap-conf"$/;"	e	section:spec
+name: "bootstrap-conf"	templates/statefulset.yaml	/^      - name: "bootstrap-conf"$/;"	e	section:spec
+name: "bootstrap-conf-temp"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "bootstrap-conf-temp"$/;"	e	section:spec
+name: "bootstrap-conf-temp"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "bootstrap-conf-temp"$/;"	e	section:spec
+name: "bootstrap-conf-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "bootstrap-conf-temp"$/;"	e	section:spec
+name: "bootstrap-conf-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "bootstrap-conf-temp"$/;"	e	section:spec
+name: "bootstrap-notification-services-xml"	render/nifi/templates/statefulset.yaml	/^          - name: "bootstrap-notification-services-xml"$/;"	e	section:spec
+name: "bootstrap-notification-services-xml"	render/nifi/templates/statefulset.yaml	/^      - name: "bootstrap-notification-services-xml"$/;"	e	section:spec
+name: "bootstrap-notification-services-xml"	templates/statefulset.yaml	/^          - name: "bootstrap-notification-services-xml"$/;"	e	section:spec
+name: "bootstrap-notification-services-xml"	templates/statefulset.yaml	/^      - name: "bootstrap-notification-services-xml"$/;"	e	section:spec
+name: "ccprobe"	templates/statefulset.yaml	/^          - name: "ccprobe"$/;"	e	section:spec
+name: "ccprobe"	templates/statefulset.yaml	/^      - name: "ccprobe"$/;"	e	section:spec
+name: "databaseflow-storage"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "databaseflow-storage"$/;"	e	section:spec
+name: "databaseflow-storage"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "databaseflow-storage"$/;"	e	section:spec
+name: "default-database"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "default-database"$/;"	e	section:spec
+name: "default-database"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "default-database"$/;"	e	section:spec
+name: "default-database"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "default-database"$/;"	e	section:spec
+name: "default-database"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "default-database"$/;"	e	section:spec
+name: "flow-content"	render/nifi/templates/statefulset.yaml	/^          - name: "flow-content"$/;"	e	section:spec
+name: "flow-content"	render/nifi/templates/statefulset.yaml	/^      - name: "flow-content"$/;"	e	section:spec
+name: "flow-content"	templates/statefulset.yaml	/^          - name: "flow-content"$/;"	e	section:spec
+name: "flow-content"	templates/statefulset.yaml	/^      - name: "flow-content"$/;"	e	section:spec
+name: "generate-certs"	render/nifi/templates/statefulset.yaml	/^          - name: "generate-certs"$/;"	e	section:spec
+name: "generate-certs"	render/nifi/templates/statefulset.yaml	/^      - name: "generate-certs"$/;"	e	section:spec
+name: "generate-certs"	templates/statefulset.yaml	/^          - name: "generate-certs"$/;"	e	section:spec
+name: "generate-certs"	templates/statefulset.yaml	/^      - name: "generate-certs"$/;"	e	section:spec
+name: "generate-user"	render/nifi/templates/statefulset.yaml	/^          - name: "generate-user"$/;"	e	section:spec
+name: "generate-user"	render/nifi/templates/statefulset.yaml	/^      - name: "generate-user"$/;"	e	section:spec
+name: "generate-user"	templates/statefulset.yaml	/^          - name: "generate-user"$/;"	e	section:spec
+name: "generate-user"	templates/statefulset.yaml	/^      - name: "generate-user"$/;"	e	section:spec
+name: "identity-providers-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "identity-providers-xml-temp"$/;"	e	section:spec
+name: "identity-providers-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "identity-providers-xml-temp"$/;"	e	section:spec
+name: "identity-providers-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "identity-providers-xml-temp"$/;"	e	section:spec
+name: "identity-providers-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "identity-providers-xml-temp"$/;"	e	section:spec
+name: "liveness-probe"	render/nifi/templates/statefulset.yaml	/^          - name: "liveness-probe"$/;"	e	section:spec
+name: "liveness-probe"	render/nifi/templates/statefulset.yaml	/^      - name: "liveness-probe"$/;"	e	section:spec
+name: "logback-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "logback-xml-temp"$/;"	e	section:spec
+name: "logback-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "logback-xml-temp"$/;"	e	section:spec
+name: "logback-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "logback-xml-temp"$/;"	e	section:spec
+name: "logback-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "logback-xml-temp"$/;"	e	section:spec
+name: "login-identity-providers-xml"	render/nifi/templates/statefulset.yaml	/^          - name: "login-identity-providers-xml"$/;"	e	section:spec
+name: "login-identity-providers-xml"	render/nifi/templates/statefulset.yaml	/^      - name: "login-identity-providers-xml"$/;"	e	section:spec
+name: "login-identity-providers-xml"	templates/statefulset.yaml	/^          - name: "login-identity-providers-xml"$/;"	e	section:spec
+name: "login-identity-providers-xml"	templates/statefulset.yaml	/^      - name: "login-identity-providers-xml"$/;"	e	section:spec
+name: "nifi-properties"	render/nifi/templates/statefulset.yaml	/^          - name: "nifi-properties"$/;"	e	section:spec
+name: "nifi-properties"	render/nifi/templates/statefulset.yaml	/^      - name: "nifi-properties"$/;"	e	section:spec
+name: "nifi-properties"	templates/statefulset.yaml	/^          - name: "nifi-properties"$/;"	e	section:spec
+name: "nifi-properties"	templates/statefulset.yaml	/^      - name: "nifi-properties"$/;"	e	section:spec
+name: "nifi-registry-properties-temp"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "nifi-registry-properties-temp"$/;"	e	section:spec
+name: "nifi-registry-properties-temp"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "nifi-registry-properties-temp"$/;"	e	section:spec
+name: "nifi-registry-properties-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "nifi-registry-properties-temp"$/;"	e	section:spec
+name: "nifi-registry-properties-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "nifi-registry-properties-temp"$/;"	e	section:spec
+name: "nifidata"	render/nifi/templates/statefulset.yaml	/^          - name: "nifidata"$/;"	e	section:spec
+name: "nifidata"	render/nifi/templates/statefulset.yaml	/^        - name: "nifidata"$/;"	e	section:spec
+name: "nifidata"	templates/statefulset.yaml	/^          - name: "nifidata"$/;"	e	section:spec
+name: "nifidata"	templates/statefulset.yaml	/^        - name: "nifidata"$/;"	e	section:spec
+name: "offload-node"	render/nifi/templates/statefulset.yaml	/^          - name: "offload-node"$/;"	e	section:spec
+name: "offload-node"	render/nifi/templates/statefulset.yaml	/^      - name: "offload-node"$/;"	e	section:spec
+name: "offload-node"	templates/statefulset.yaml	/^          - name: "offload-node"$/;"	e	section:spec
+name: "offload-node"	templates/statefulset.yaml	/^      - name: "offload-node"$/;"	e	section:spec
+name: "providers-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "providers-xml-temp"$/;"	e	section:spec
+name: "providers-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "providers-xml-temp"$/;"	e	section:spec
+name: "providers-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "providers-xml-temp"$/;"	e	section:spec
+name: "providers-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "providers-xml-temp"$/;"	e	section:spec
+name: "readiness-probe"	render/nifi/templates/statefulset.yaml	/^          - name: "readiness-probe"$/;"	e	section:spec
+name: "readiness-probe"	render/nifi/templates/statefulset.yaml	/^      - name: "readiness-probe"$/;"	e	section:spec
+name: "registry-aliases-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "registry-aliases-xml-temp"$/;"	e	section:spec
+name: "registry-aliases-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "registry-aliases-xml-temp"$/;"	e	section:spec
+name: "registry-aliases-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "registry-aliases-xml-temp"$/;"	e	section:spec
+name: "registry-aliases-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "registry-aliases-xml-temp"$/;"	e	section:spec
+name: "secure-sh"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "secure-sh"$/;"	e	section:spec
+name: "secure-sh"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "secure-sh"$/;"	e	section:spec
+name: "secure-sh"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "secure-sh"$/;"	e	section:spec
+name: "secure-sh"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "secure-sh"$/;"	e	section:spec
+name: "state-management-xml"	render/nifi/templates/statefulset.yaml	/^          - name: "state-management-xml"$/;"	e	section:spec
+name: "state-management-xml"	render/nifi/templates/statefulset.yaml	/^      - name: "state-management-xml"$/;"	e	section:spec
+name: "state-management-xml"	templates/statefulset.yaml	/^          - name: "state-management-xml"$/;"	e	section:spec
+name: "state-management-xml"	templates/statefulset.yaml	/^      - name: "state-management-xml"$/;"	e	section:spec
+name: "users-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^            - name: "users-xml-temp"$/;"	e	section:spec
+name: "users-xml-temp"	charts/nifi-registry/templates/statefulset.yaml	/^        - name: "users-xml-temp"$/;"	e	section:spec
+name: "users-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: "users-xml-temp"$/;"	e	section:spec
+name: "users-xml-temp"	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: "users-xml-temp"$/;"	e	section:spec
+name: "zookeeper-properties"	render/nifi/templates/statefulset.yaml	/^          - name: "zookeeper-properties"$/;"	e	section:spec
+name: "zookeeper-properties"	render/nifi/templates/statefulset.yaml	/^      - name: "zookeeper-properties"$/;"	e	section:spec
+name: "zookeeper-properties"	templates/statefulset.yaml	/^          - name: "zookeeper-properties"$/;"	e	section:spec
+name: "zookeeper-properties"	templates/statefulset.yaml	/^      - name: "zookeeper-properties"$/;"	e	section:spec
+name: ALLOW_ANONYMOUS_LOGIN	charts/zookeeper/templates/statefulset.yaml	/^            - name: ALLOW_ANONYMOUS_LOGIN$/;"	e	section:spec
+name: ALLOW_ANONYMOUS_LOGIN	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ALLOW_ANONYMOUS_LOGIN$/;"	e	section:spec
+name: ALLOW_ANONYMOUS_LOGIN	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ALLOW_ANONYMOUS_LOGIN$/;"	e	section:spec
+name: JVMFLAGS	charts/zookeeper/templates/statefulset.yaml	/^            - name: JVMFLAGS$/;"	e	section:spec
+name: NIFI_ZOOKEEPER_CONNECT_STRING	kustomize/apps_v1_statefulset_nifi.yaml	/^        - name: NIFI_ZOOKEEPER_CONNECT_STRING$/;"	e	section:spec
+name: NIFI_ZOOKEEPER_CONNECT_STRING	render/nifi/templates/statefulset.yaml	/^        - name: NIFI_ZOOKEEPER_CONNECT_STRING$/;"	e	section:spec
+name: NIFI_ZOOKEEPER_CONNECT_STRING	templates/statefulset.yaml	/^        - name: NIFI_ZOOKEEPER_CONNECT_STRING$/;"	e	section:spec
+name: POD_NAME	charts/zookeeper/templates/statefulset.yaml	/^            - name: POD_NAME$/;"	e	section:spec
+name: POD_NAME	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: POD_NAME$/;"	e	section:spec
+name: POD_NAME	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: POD_NAME$/;"	e	section:spec
+name: REGENERATE_CERTIFICATES	render/nifi/templates/statefulset.yaml	/^        - name: REGENERATE_CERTIFICATES$/;"	e	section:spec
+name: REGENERATE_CERTIFICATES	templates/statefulset.yaml	/^        - name: REGENERATE_CERTIFICATES$/;"	e	section:spec
+name: ZOO_4LW_COMMANDS_WHITELIST	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_4LW_COMMANDS_WHITELIST$/;"	e	section:spec
+name: ZOO_4LW_COMMANDS_WHITELIST	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_4LW_COMMANDS_WHITELIST$/;"	e	section:spec
+name: ZOO_4LW_COMMANDS_WHITELIST	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_4LW_COMMANDS_WHITELIST$/;"	e	section:spec
+name: ZOO_AUTOPURGE_INTERVAL	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_AUTOPURGE_INTERVAL$/;"	e	section:spec
+name: ZOO_AUTOPURGE_INTERVAL	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_AUTOPURGE_INTERVAL$/;"	e	section:spec
+name: ZOO_AUTOPURGE_INTERVAL	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_AUTOPURGE_INTERVAL$/;"	e	section:spec
+name: ZOO_AUTOPURGE_RETAIN_COUNT	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_AUTOPURGE_RETAIN_COUNT$/;"	e	section:spec
+name: ZOO_AUTOPURGE_RETAIN_COUNT	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_AUTOPURGE_RETAIN_COUNT$/;"	e	section:spec
+name: ZOO_AUTOPURGE_RETAIN_COUNT	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_AUTOPURGE_RETAIN_COUNT$/;"	e	section:spec
+name: ZOO_CLIENT_PASSWORD	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_CLIENT_PASSWORD$/;"	e	section:spec
+name: ZOO_CLIENT_USER	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_CLIENT_USER$/;"	e	section:spec
+name: ZOO_DATA_LOG_DIR	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_DATA_LOG_DIR$/;"	e	section:spec
+name: ZOO_DATA_LOG_DIR	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_DATA_LOG_DIR$/;"	e	section:spec
+name: ZOO_DATA_LOG_DIR	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_DATA_LOG_DIR$/;"	e	section:spec
+name: ZOO_ENABLE_AUTH	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_ENABLE_AUTH$/;"	e	section:spec
+name: ZOO_ENABLE_AUTH	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_ENABLE_AUTH$/;"	e	section:spec
+name: ZOO_ENABLE_AUTH	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_ENABLE_AUTH$/;"	e	section:spec
+name: ZOO_ENABLE_PROMETHEUS_METRICS	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_ENABLE_PROMETHEUS_METRICS$/;"	e	section:spec
+name: ZOO_HEAP_SIZE	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_HEAP_SIZE$/;"	e	section:spec
+name: ZOO_HEAP_SIZE	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_HEAP_SIZE$/;"	e	section:spec
+name: ZOO_HEAP_SIZE	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_HEAP_SIZE$/;"	e	section:spec
+name: ZOO_INIT_LIMIT	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_INIT_LIMIT$/;"	e	section:spec
+name: ZOO_INIT_LIMIT	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_INIT_LIMIT$/;"	e	section:spec
+name: ZOO_INIT_LIMIT	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_INIT_LIMIT$/;"	e	section:spec
+name: ZOO_LISTEN_ALLIPS_ENABLED	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_LISTEN_ALLIPS_ENABLED$/;"	e	section:spec
+name: ZOO_LISTEN_ALLIPS_ENABLED	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_LISTEN_ALLIPS_ENABLED$/;"	e	section:spec
+name: ZOO_LISTEN_ALLIPS_ENABLED	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_LISTEN_ALLIPS_ENABLED$/;"	e	section:spec
+name: ZOO_LOG_LEVEL	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_LOG_LEVEL$/;"	e	section:spec
+name: ZOO_LOG_LEVEL	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_LOG_LEVEL$/;"	e	section:spec
+name: ZOO_LOG_LEVEL	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_LOG_LEVEL$/;"	e	section:spec
+name: ZOO_MAX_CLIENT_CNXNS	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_MAX_CLIENT_CNXNS$/;"	e	section:spec
+name: ZOO_MAX_CLIENT_CNXNS	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_MAX_CLIENT_CNXNS$/;"	e	section:spec
+name: ZOO_MAX_CLIENT_CNXNS	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_MAX_CLIENT_CNXNS$/;"	e	section:spec
+name: ZOO_MAX_SESSION_TIMEOUT	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_MAX_SESSION_TIMEOUT$/;"	e	section:spec
+name: ZOO_MAX_SESSION_TIMEOUT	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_MAX_SESSION_TIMEOUT$/;"	e	section:spec
+name: ZOO_MAX_SESSION_TIMEOUT	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_MAX_SESSION_TIMEOUT$/;"	e	section:spec
+name: ZOO_PORT_NUMBER	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_PORT_NUMBER$/;"	e	section:spec
+name: ZOO_PORT_NUMBER	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_PORT_NUMBER$/;"	e	section:spec
+name: ZOO_PORT_NUMBER	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_PORT_NUMBER$/;"	e	section:spec
+name: ZOO_PROMETHEUS_METRICS_PORT_NUMBER	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_PROMETHEUS_METRICS_PORT_NUMBER$/;"	e	section:spec
+name: ZOO_SERVERS	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_SERVERS$/;"	e	section:spec
+name: ZOO_SERVERS	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_SERVERS$/;"	e	section:spec
+name: ZOO_SERVERS	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_SERVERS$/;"	e	section:spec
+name: ZOO_SERVER_PASSWORDS	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_SERVER_PASSWORDS$/;"	e	section:spec
+name: ZOO_SERVER_USERS	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_SERVER_USERS$/;"	e	section:spec
+name: ZOO_SYNC_LIMIT	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_SYNC_LIMIT$/;"	e	section:spec
+name: ZOO_SYNC_LIMIT	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_SYNC_LIMIT$/;"	e	section:spec
+name: ZOO_SYNC_LIMIT	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_SYNC_LIMIT$/;"	e	section:spec
+name: ZOO_TICK_TIME	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TICK_TIME$/;"	e	section:spec
+name: ZOO_TICK_TIME	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^        - name: ZOO_TICK_TIME$/;"	e	section:spec
+name: ZOO_TICK_TIME	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TICK_TIME$/;"	e	section:spec
+name: ZOO_TLS_CLIENT_ENABLE	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TLS_CLIENT_ENABLE$/;"	e	section:spec
+name: ZOO_TLS_CLIENT_KEYSTORE_FILE	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TLS_CLIENT_KEYSTORE_FILE$/;"	e	section:spec
+name: ZOO_TLS_CLIENT_KEYSTORE_PASSWORD	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TLS_CLIENT_KEYSTORE_PASSWORD$/;"	e	section:spec
+name: ZOO_TLS_CLIENT_TRUSTSTORE_FILE	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TLS_CLIENT_TRUSTSTORE_FILE$/;"	e	section:spec
+name: ZOO_TLS_CLIENT_TRUSTSTORE_PASSWORD	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TLS_CLIENT_TRUSTSTORE_PASSWORD$/;"	e	section:spec
+name: ZOO_TLS_QUORUM_ENABLE	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TLS_QUORUM_ENABLE$/;"	e	section:spec
+name: ZOO_TLS_QUORUM_KEYSTORE_FILE	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TLS_QUORUM_KEYSTORE_FILE$/;"	e	section:spec
+name: ZOO_TLS_QUORUM_KEYSTORE_PASSWORD	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TLS_QUORUM_KEYSTORE_PASSWORD$/;"	e	section:spec
+name: ZOO_TLS_QUORUM_TRUSTSTORE_FILE	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TLS_QUORUM_TRUSTSTORE_FILE$/;"	e	section:spec
+name: ZOO_TLS_QUORUM_TRUSTSTORE_PASSWORD	charts/zookeeper/templates/statefulset.yaml	/^            - name: ZOO_TLS_QUORUM_TRUSTSTORE_PASSWORD$/;"	e	section:spec
+name: app-log	render/nifi/templates/statefulset.yaml	/^      - name: app-log$/;"	e	section:spec
+name: app-log	templates/statefulset.yaml	/^      - name: app-log$/;"	e	section:spec
+name: bootstrap-log	render/nifi/templates/statefulset.yaml	/^      - name: bootstrap-log$/;"	e	section:spec
+name: bootstrap-log	templates/statefulset.yaml	/^      - name: bootstrap-log$/;"	e	section:spec
+name: ca	charts/nifi-ca/templates/deployment.yaml	/^      - name: ca$/;"	e	section:spec
+name: ca	render/nifi/charts/ca/templates/deployment.yaml	/^      - name: ca$/;"	e	section:spec
+name: ca-server	kustomize/v1_service_nifi-ca.yaml	/^  - name: ca-server$/;"	e	section:spec
+name: cert-request	charts/nifi-registry/templates/statefulset.yaml	/^        - name: cert-request$/;"	e	section:spec
+name: cert-request	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: cert-request$/;"	e	section:spec
+name: cert-request	render/nifi/templates/statefulset.yaml	/^      - name: cert-request$/;"	e	section:spec
+name: cert-request	templates/statefulset.yaml	/^      - name: cert-request$/;"	e	section:spec
+name: client	charts/zookeeper/templates/statefulset.yaml	/^            - name: client$/;"	e	section:spec
+name: client	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: client$/;"	e	section:spec
+name: client-tls	charts/zookeeper/templates/statefulset.yaml	/^            - name: client-tls$/;"	e	section:spec
+name: cluster	kustomize/v1_service_nifi-headless.yaml	/^  - name: cluster$/;"	e	section:spec
+name: config	charts/zookeeper/templates/statefulset.yaml	/^            - name: config$/;"	e	section:spec
+name: config	charts/zookeeper/templates/statefulset.yaml	/^        - name: config$/;"	e	section:spec
+name: config	render/nifi/templates/statefulset.yaml	/^      - name: config$/;"	e	section:spec
+name: config	templates/statefulset.yaml	/^      - name: config$/;"	e	section:spec
+name: data	charts/zookeeper/templates/statefulset.yaml	/^            - name: data$/;"	e	section:spec
+name: data	charts/zookeeper/templates/statefulset.yaml	/^        - name: data$/;"	e	section:spec
+name: data	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: data$/;"	e	section:spec
+name: data-log	charts/zookeeper/templates/statefulset.yaml	/^            - name: data-log$/;"	e	section:spec
+name: data-log	charts/zookeeper/templates/statefulset.yaml	/^        - name: data-log$/;"	e	section:spec
+name: default-database	kustomize/apps_v1_statefulset_nifi-registry.yaml	/^      - name: default-database$/;"	e	section:spec
+name: election	charts/zookeeper/templates/statefulset.yaml	/^            - name: election$/;"	e	section:spec
+name: election	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: election$/;"	e	section:spec
+name: follower	charts/zookeeper/templates/statefulset.yaml	/^            - name: follower$/;"	e	section:spec
+name: follower	charts/zookeeper/templates/svc-headless.yaml	/^    - name: follower$/;"	e	section:spec
+name: follower	charts/zookeeper/templates/svc.yaml	/^    - name: follower$/;"	e	section:spec
+name: follower	kustomize/v1_service_nifi-zookeeper-headless.yaml	/^  - name: follower$/;"	e	section:spec
+name: follower	kustomize/v1_service_nifi-zookeeper.yaml	/^  - name: follower$/;"	e	section:spec
+name: follower	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^            - name: follower$/;"	e	section:spec
+name: follower	render/nifi/charts/zookeeper/templates/svc-headless.yaml	/^    - name: follower$/;"	e	section:spec
+name: follower	render/nifi/charts/zookeeper/templates/svc.yaml	/^    - name: follower$/;"	e	section:spec
+name: http	charts/nifi-registry/templates/statefulset.yaml	/^            - name: http$/;"	e	section:spec
+name: http	kustomize/v1_service_nifi-headless.yaml	/^  - name: http$/;"	e	section:spec
+name: http	kustomize/v1_service_nifi-registry.yaml	/^  - name: http$/;"	e	section:spec
+name: http	kustomize/v1_service_nifi.yaml	/^  - name: http$/;"	e	section:spec
+name: https	charts/nifi-registry/templates/statefulset.yaml	/^            - name: https$/;"	e	section:spec
+name: https	render/nifi/charts/registry/templates/statefulset.yaml	/^            - name: https$/;"	e	section:spec
+name: metrics	charts/zookeeper/templates/statefulset.yaml	/^            - name: metrics$/;"	e	section:spec
+name: metrics	render/nifi/templates/service.yaml	/^  - name: metrics$/;"	e	section:spec
+name: metrics	templates/service.yaml	/^  - name: metrics$/;"	e	section:spec
+name: nifi-ca	charts/nifi-ca/templates/deployment.yaml	/^      - name: nifi-ca$/;"	e	section:spec
+name: nifi-ca	kustomize/apps_v1_deployment_nifi-ca.yaml	/^      - name: nifi-ca$/;"	e	section:spec
+name: nifi-ca	render/nifi/charts/ca/templates/deployment.yaml	/^      - name: nifi-ca$/;"	e	section:spec
+name: nifidata	render/nifi/templates/statefulset.yaml	/^        - name: nifidata$/;"	e	section:spec
+name: nifidata	templates/statefulset.yaml	/^        - name: nifidata$/;"	e	section:spec
+name: nifidata	templates/statefulset.yaml	/^      - name: nifidata$/;"	e	section:spec
+name: processor01	values-oaz-dev.yaml	/^      - name: processor01$/;"	e	section:service
+name: processor01	values.yaml	/^      - name: processor01$/;"	e	section:service
+name: processor02	values-oaz-dev.yaml	/^      - name: processor02$/;"	e	section:service
+name: processor02	values.yaml	/^      - name: processor02$/;"	e	section:service
+name: registry	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: registry$/;"	e	section:spec
+name: server	render/nifi/templates/statefulset.yaml	/^      - name: server$/;"	e	section:spec
+name: server	templates/statefulset.yaml	/^      - name: server$/;"	e	section:spec
+name: tcp-client	charts/zookeeper/templates/svc-headless.yaml	/^    - name: tcp-client$/;"	e	section:spec
+name: tcp-client	charts/zookeeper/templates/svc.yaml	/^    - name: tcp-client$/;"	e	section:spec
+name: tcp-client	kustomize/v1_service_nifi-zookeeper-headless.yaml	/^  - name: tcp-client$/;"	e	section:spec
+name: tcp-client	kustomize/v1_service_nifi-zookeeper.yaml	/^  - name: tcp-client$/;"	e	section:spec
+name: tcp-client	render/nifi/charts/zookeeper/templates/svc-headless.yaml	/^    - name: tcp-client$/;"	e	section:spec
+name: tcp-client	render/nifi/charts/zookeeper/templates/svc.yaml	/^    - name: tcp-client$/;"	e	section:spec
+name: tcp-client-tls	charts/zookeeper/templates/svc-headless.yaml	/^    - name: tcp-client-tls$/;"	e	section:spec
+name: tcp-client-tls	charts/zookeeper/templates/svc.yaml	/^    - name: tcp-client-tls$/;"	e	section:spec
+name: tcp-election	charts/zookeeper/templates/svc-headless.yaml	/^    - name: tcp-election$/;"	e	section:spec
+name: tcp-election	charts/zookeeper/templates/svc.yaml	/^    - name: tcp-election$/;"	e	section:spec
+name: tcp-election	kustomize/v1_service_nifi-zookeeper-headless.yaml	/^  - name: tcp-election$/;"	e	section:spec
+name: tcp-election	kustomize/v1_service_nifi-zookeeper.yaml	/^  - name: tcp-election$/;"	e	section:spec
+name: tcp-election	render/nifi/charts/zookeeper/templates/svc-headless.yaml	/^    - name: tcp-election$/;"	e	section:spec
+name: tcp-election	render/nifi/charts/zookeeper/templates/svc.yaml	/^    - name: tcp-election$/;"	e	section:spec
+name: tcp-metrics	charts/zookeeper/templates/metrics-svc.yaml	/^    - name: tcp-metrics$/;"	e	section:spec
+name: treeemaker	charts/nifi-registry/templates/statefulset.yaml	/^        - name: treeemaker$/;"	e	section:spec
+name: treeemaker	render/nifi/charts/registry/templates/statefulset.yaml	/^        - name: treeemaker$/;"	e	section:spec
+name: treemaker	render/nifi/templates/statefulset.yaml	/^      - name: treemaker$/;"	e	section:spec
+name: treemaker	templates/statefulset.yaml	/^      - name: treemaker$/;"	e	section:spec
+name: user-log	render/nifi/templates/statefulset.yaml	/^      - name: user-log$/;"	e	section:spec
+name: user-log	templates/statefulset.yaml	/^      - name: user-log$/;"	e	section:spec
+name: volume-permissions	charts/zookeeper/templates/statefulset.yaml	/^        - name: volume-permissions$/;"	e	section:spec
+name: wget	charts/nifi-registry/templates/tests/test-connection.yaml	/^    - name: wget$/;"	e	section:spec
+name: wget	render/nifi/charts/registry/templates/tests/test-connection.yaml	/^    - name: wget$/;"	e	section:spec
+name: zookeeper	charts/zookeeper/templates/statefulset.yaml	/^        - name: zookeeper$/;"	e	section:spec
+name: zookeeper	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^        - name: zookeeper$/;"	e	section:spec
+name: zookeeper	render/nifi/templates/statefulset.yaml	/^      - name: zookeeper$/;"	e	section:spec
+name: zookeeper	templates/statefulset.yaml	/^      - name: zookeeper$/;"	e	section:spec
+name: {{ $key }}	templates/statefulset.yaml	/^      - name: {{ $key }}$/;"	e	section:spec
+name: {{ .Chart.Name }}	charts/nifi-registry/templates/statefulset.yaml	/^        - name: {{ .Chart.Name }}$/;"	e	section:spec
+name: {{ .Values.image.pullSecret }}	templates/statefulset.yaml	/^        - name: {{ .Values.image.pullSecret }}$/;"	e	section:spec
+name: {{ include "apache-nifi.fullname" $ }}-{{ $configmap.name }}	templates/statefulset.yaml	/^          - name: {{ include "apache-nifi.fullname" $ }}-{{ $configmap.name }}$/;"	e	section:spec
+name: {{ include "apache-nifi.fullname" $ }}-{{ $secret.name }}	templates/statefulset.yaml	/^          - name: {{ include "apache-nifi.fullname" $ }}-{{ $secret.name }}$/;"	e	section:spec
+name: {{ include "apache-nifi.fullname" $ }}-{{ .name }}	templates/statefulset.yaml	/^      - name: {{ include "apache-nifi.fullname" $ }}-{{ .name }}$/;"	e	section:spec
+name: {{ include "zookeeper.fullname" . }}	charts/zookeeper/templates/prometheusrules.yaml	/^  - name: {{ include "zookeeper.fullname" . }}$/;"	e	section:spec
+nameOverride	charts/nifi-registry/values.yaml	/^nameOverride: ""$/;"	s
+networkPolicy	charts/zookeeper/values-production.yaml	/^networkPolicy:$/;"	s
+networkPolicy	charts/zookeeper/values.yaml	/^networkPolicy:$/;"	s
+nifi.administrative.yield.duration	configs/nifi.properties	/^nifi.administrative.yield.duration=30 sec$/;"	k
+nifi.authorizer.configuration.file	configs/nifi.properties	/^nifi.authorizer.configuration.file=.\/conf\/authorizers.xml$/;"	k
+nifi.bored.yield.duration	configs/nifi.properties	/^nifi.bored.yield.duration=10 millis$/;"	k
+nifi.cluster.firewall.file	configs/nifi.properties	/^nifi.cluster.firewall.file=$/;"	k
+nifi.cluster.flow.election.max.candidates	configs/nifi.properties	/^nifi.cluster.flow.election.max.candidates=$/;"	k
+nifi.cluster.flow.election.max.wait.time	configs/nifi.properties	/^nifi.cluster.flow.election.max.wait.time=1 mins$/;"	k
+nifi.cluster.is.node	configs/nifi.properties	/^nifi.cluster.is.node={{.Values.properties.isNode}}$/;"	k
+nifi.cluster.node.address	configs/nifi.properties	/^nifi.cluster.node.address=$/;"	k
+nifi.cluster.node.connection.timeout	configs/nifi.properties	/^nifi.cluster.node.connection.timeout=5 sec$/;"	k
+nifi.cluster.node.event.history.size	configs/nifi.properties	/^nifi.cluster.node.event.history.size=25$/;"	k
+nifi.cluster.node.max.concurrent.requests	configs/nifi.properties	/^nifi.cluster.node.max.concurrent.requests=100$/;"	k
+nifi.cluster.node.protocol.max.threads	configs/nifi.properties	/^nifi.cluster.node.protocol.max.threads=50$/;"	k
+nifi.cluster.node.protocol.port	configs/nifi.properties	/^nifi.cluster.node.protocol.port={{.Values.properties.clusterPort}}$/;"	k
+nifi.cluster.node.protocol.threads	configs/nifi.properties	/^nifi.cluster.node.protocol.threads=10$/;"	k
+nifi.cluster.node.read.timeout	configs/nifi.properties	/^nifi.cluster.node.read.timeout=5 sec$/;"	k
+nifi.cluster.protocol.heartbeat.interval	configs/nifi.properties	/^nifi.cluster.protocol.heartbeat.interval=5 sec$/;"	k
+nifi.cluster.protocol.is.secure	configs/nifi.properties	/^nifi.cluster.protocol.is.secure={{.Values.properties.clusterSecure}}$/;"	k
+nifi.components.status.repository.buffer.size	configs/nifi.properties	/^nifi.components.status.repository.buffer.size=1440$/;"	k
+nifi.components.status.repository.implementation	configs/nifi.properties	/^nifi.components.status.repository.implementation=org.apache.nifi.controller.status.history.Volat/;"	k
+nifi.components.status.snapshot.frequency	configs/nifi.properties	/^nifi.components.status.snapshot.frequency=1 min$/;"	k
+nifi.content.claim.max.appendable.size	configs/nifi.properties	/^nifi.content.claim.max.appendable.size=1 MB$/;"	k
+nifi.content.claim.max.flow.files	configs/nifi.properties	/^nifi.content.claim.max.flow.files=100$/;"	k
+nifi.content.repository.always.sync	configs/nifi.properties	/^nifi.content.repository.always.sync=false$/;"	k
+nifi.content.repository.archive.enabled	configs/nifi.properties	/^nifi.content.repository.archive.enabled=true$/;"	k
+nifi.content.repository.archive.max.retention.period	configs/nifi.properties	/^nifi.content.repository.archive.max.retention.period=3 days$/;"	k
+nifi.content.repository.archive.max.usage.percentage	configs/nifi.properties	/^nifi.content.repository.archive.max.usage.percentage=85%$/;"	k
+nifi.content.repository.directory.default	configs/nifi.properties	/^nifi.content.repository.directory.default=..\/content_repository$/;"	k
+nifi.content.repository.implementation	configs/nifi.properties	/^nifi.content.repository.implementation=org.apache.nifi.controller.repository.FileSystemRepositor/;"	k
+nifi.content.viewer.url	configs/nifi.properties	/^nifi.content.viewer.url=\/nifi-content-viewer\/$/;"	k
+nifi.database.directory	configs/nifi.properties	/^nifi.database.directory=..\/data\/database_repository$/;"	k
+nifi.documentation.working.directory	configs/nifi.properties	/^nifi.documentation.working.directory=.\/work\/docs\/components$/;"	k
+nifi.flow.configuration.archive.dir	configs/nifi.properties	/^nifi.flow.configuration.archive.dir=..\/data\/archive\/$/;"	k
+nifi.flow.configuration.archive.enabled	configs/nifi.properties	/^nifi.flow.configuration.archive.enabled=true$/;"	k
+nifi.flow.configuration.archive.max.count	configs/nifi.properties	/^nifi.flow.configuration.archive.max.count=$/;"	k
+nifi.flow.configuration.archive.max.storage	configs/nifi.properties	/^nifi.flow.configuration.archive.max.storage=500 MB$/;"	k
+nifi.flow.configuration.archive.max.time	configs/nifi.properties	/^nifi.flow.configuration.archive.max.time=30 days$/;"	k
+nifi.flow.configuration.file	configs/nifi.properties	/^nifi.flow.configuration.file=..\/data\/flow.xml.gz$/;"	k
+nifi.flowcontroller.autoResumeState	configs/nifi.properties	/^nifi.flowcontroller.autoResumeState=true$/;"	k
+nifi.flowcontroller.graceful.shutdown.period	configs/nifi.properties	/^nifi.flowcontroller.graceful.shutdown.period=10 sec$/;"	k
+nifi.flowfile.repository.always.sync	configs/nifi.properties	/^nifi.flowfile.repository.always.sync=false$/;"	k
+nifi.flowfile.repository.checkpoint.interval	configs/nifi.properties	/^nifi.flowfile.repository.checkpoint.interval=2 mins$/;"	k
+nifi.flowfile.repository.directory	configs/nifi.properties	/^nifi.flowfile.repository.directory=..\/flowfile_repository$/;"	k
+nifi.flowfile.repository.implementation	configs/nifi.properties	/^nifi.flowfile.repository.implementation=org.apache.nifi.controller.repository.WriteAheadFlowFile/;"	k
+nifi.flowfile.repository.partitions	configs/nifi.properties	/^nifi.flowfile.repository.partitions=256$/;"	k
+nifi.flowservice.writedelay.interval	configs/nifi.properties	/^nifi.flowservice.writedelay.interval=500 ms$/;"	k
+nifi.h2.url.append	configs/nifi.properties	/^nifi.h2.url.append=;LOCK_TIMEOUT=25000;WRITE_DELAY=0;AUTO_SERVER=FALSE$/;"	k
+nifi.kerberos.krb5.file	configs/nifi.properties	/^nifi.kerberos.krb5.file=$/;"	k
+nifi.kerberos.service.keytab.location	configs/nifi.properties	/^nifi.kerberos.service.keytab.location=$/;"	k
+nifi.kerberos.service.principal	configs/nifi.properties	/^nifi.kerberos.service.principal=$/;"	k
+nifi.kerberos.spnego.authentication.expiration	configs/nifi.properties	/^nifi.kerberos.spnego.authentication.expiration=12 hours$/;"	k
+nifi.kerberos.spnego.keytab.location	configs/nifi.properties	/^nifi.kerberos.spnego.keytab.location=$/;"	k
+nifi.kerberos.spnego.principal	configs/nifi.properties	/^nifi.kerberos.spnego.principal=$/;"	k
+nifi.login.identity.provider.configuration.file	configs/nifi.properties	/^nifi.login.identity.provider.configuration.file=.\/conf\/login-identity-providers.xml$/;"	k
+nifi.nar.library.autoload.directory	configs/nifi.properties	/^nifi.nar.library.autoload.directory=.\/extensions$/;"	k
+nifi.nar.library.directory	configs/nifi.properties	/^nifi.nar.library.directory=.\/lib$/;"	k
+nifi.nar.library.directory.custom	configs/nifi.properties	/^nifi.nar.library.directory.custom={{.Values.properties.customLibPath}}$/;"	k
+nifi.nar.working.directory	configs/nifi.properties	/^nifi.nar.working.directory=.\/work\/nar\/$/;"	k
+nifi.provenance.repository.always.sync	configs/nifi.properties	/^nifi.provenance.repository.always.sync=false$/;"	k
+nifi.provenance.repository.buffer.size	configs/nifi.properties	/^nifi.provenance.repository.buffer.size=100000$/;"	k
+nifi.provenance.repository.compress.on.rollover	configs/nifi.properties	/^nifi.provenance.repository.compress.on.rollover=true$/;"	k
+nifi.provenance.repository.debug.frequency	configs/nifi.properties	/^nifi.provenance.repository.debug.frequency=1_000_000$/;"	k
+nifi.provenance.repository.directory.default	configs/nifi.properties	/^nifi.provenance.repository.directory.default=..\/provenance_repository$/;"	k
+nifi.provenance.repository.encryption.key	configs/nifi.properties	/^nifi.provenance.repository.encryption.key=$/;"	k
+nifi.provenance.repository.encryption.key.id	configs/nifi.properties	/^nifi.provenance.repository.encryption.key.id=$/;"	k
+nifi.provenance.repository.encryption.key.provider.implementation	configs/nifi.properties	/^nifi.provenance.repository.encryption.key.provider.implementation=$/;"	k
+nifi.provenance.repository.encryption.key.provider.location	configs/nifi.properties	/^nifi.provenance.repository.encryption.key.provider.location=$/;"	k
+nifi.provenance.repository.implementation	configs/nifi.properties	/^nifi.provenance.repository.implementation=org.apache.nifi.provenance.WriteAheadProvenanceReposit/;"	k
+nifi.provenance.repository.index.shard.size	configs/nifi.properties	/^nifi.provenance.repository.index.shard.size=500 MB$/;"	k
+nifi.provenance.repository.index.threads	configs/nifi.properties	/^nifi.provenance.repository.index.threads=2$/;"	k
+nifi.provenance.repository.indexed.attributes	configs/nifi.properties	/^nifi.provenance.repository.indexed.attributes=$/;"	k
+nifi.provenance.repository.indexed.fields	configs/nifi.properties	/^nifi.provenance.repository.indexed.fields=EventType, FlowFileUUID, Filename, ProcessorID, Relati/;"	k
+nifi.provenance.repository.journal.count	configs/nifi.properties	/^nifi.provenance.repository.journal.count=16$/;"	k
+nifi.provenance.repository.max.attribute.length	configs/nifi.properties	/^nifi.provenance.repository.max.attribute.length=65536$/;"	k
+nifi.provenance.repository.max.storage.size	configs/nifi.properties	/^nifi.provenance.repository.max.storage.size={{.Values.properties.provenanceStorage}}$/;"	k
+nifi.provenance.repository.max.storage.time	configs/nifi.properties	/^nifi.provenance.repository.max.storage.time=10 days$/;"	k
+nifi.provenance.repository.query.threads	configs/nifi.properties	/^nifi.provenance.repository.query.threads=2$/;"	k
+nifi.provenance.repository.rollover.size	configs/nifi.properties	/^nifi.provenance.repository.rollover.size=100 MB$/;"	k
+nifi.provenance.repository.rollover.time	configs/nifi.properties	/^nifi.provenance.repository.rollover.time=30 secs$/;"	k
+nifi.queue.backpressure.count	configs/nifi.properties	/^nifi.queue.backpressure.count={{ .Values.properties.files.nifiProperties.nifiQueueBackPressureCo/;"	k
+nifi.queue.backpressure.size	configs/nifi.properties	/^nifi.queue.backpressure.size={{ .Values.properties.files.nifiProperties.nifiQueueBackPressureSiz/;"	k
+nifi.queue.swap.threshold	configs/nifi.properties	/^nifi.queue.swap.threshold=20000$/;"	k
+nifi.registry.db.directory	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.db.directory=$/;"	k
+nifi.registry.db.driver.class	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.db.driver.class=org.h2.Driver$/;"	k
+nifi.registry.db.driver.directory	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.db.driver.directory=$/;"	k
+nifi.registry.db.maxConnections	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.db.maxConnections=5$/;"	k
+nifi.registry.db.password	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.db.password=nifireg$/;"	k
+nifi.registry.db.sql.debug	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.db.sql.debug=false$/;"	k
+nifi.registry.db.url	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.db.url=jdbc:h2:.\/database\/nifi-registry-primary;AUTOCOMMIT=OFF;DB_CLOSE_ON_EXIT=/;"	k
+nifi.registry.db.url.append	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.db.url.append=$/;"	k
+nifi.registry.db.username	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.db.username=nifireg$/;"	k
+nifi.registry.extension.dir.aws	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.extension.dir.aws=.\/ext\/aws\/lib$/;"	k
+nifi.registry.extensions.working.directory	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.extensions.working.directory=.\/work\/extensions$/;"	k
+nifi.registry.kerberos.krb5.file	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.kerberos.krb5.file=$/;"	k
+nifi.registry.kerberos.spnego.authentication.expiration	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.kerberos.spnego.authentication.expiration=12 hours$/;"	k
+nifi.registry.kerberos.spnego.keytab.location	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.kerberos.spnego.keytab.location=$/;"	k
+nifi.registry.kerberos.spnego.principal	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.kerberos.spnego.principal=$/;"	k
+nifi.registry.providers.configuration.file	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.providers.configuration.file=.\/conf\/providers.xml$/;"	k
+nifi.registry.registry.alias.configuration.file	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.registry.alias.configuration.file=.\/conf\/registry-aliases.xml$/;"	k
+nifi.registry.revisions.enabled	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.revisions.enabled=false$/;"	k
+nifi.registry.security.authorizer	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.authorizer=managed-authorizer$/;"	k
+nifi.registry.security.authorizers.configuration.file	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.authorizers.configuration.file=.\/conf\/authorizers.xml$/;"	k
+nifi.registry.security.identity.provider	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.identity.provider=$/;"	k
+nifi.registry.security.identity.providers.configuration.file	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.identity.providers.configuration.file=.\/conf\/identity-providers.xml$/;"	k
+nifi.registry.security.keyPasswd	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.keyPasswd=$/;"	k
+nifi.registry.security.keystore	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.keystore=$/;"	k
+nifi.registry.security.keystorePasswd	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.keystorePasswd=$/;"	k
+nifi.registry.security.keystoreType	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.keystoreType=$/;"	k
+nifi.registry.security.needClientAuth	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.needClientAuth=$/;"	k
+nifi.registry.security.truststore	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.truststore=$/;"	k
+nifi.registry.security.truststorePasswd	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.truststorePasswd=$/;"	k
+nifi.registry.security.truststoreType	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.truststoreType=$/;"	k
+nifi.registry.security.user.oidc.client.id	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.user.oidc.client.id=$/;"	k
+nifi.registry.security.user.oidc.client.secret	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.user.oidc.client.secret=$/;"	k
+nifi.registry.security.user.oidc.connect.timeout	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.user.oidc.connect.timeout=$/;"	k
+nifi.registry.security.user.oidc.discovery.url	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.user.oidc.discovery.url=$/;"	k
+nifi.registry.security.user.oidc.preferred.jwsalgorithm	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.user.oidc.preferred.jwsalgorithm=$/;"	k
+nifi.registry.security.user.oidc.read.timeout	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.security.user.oidc.read.timeout=$/;"	k
+nifi.registry.web.http.host	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.web.http.host=$/;"	k
+nifi.registry.web.http.port	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.web.http.port=$/;"	k
+nifi.registry.web.https.host	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.web.https.host=nifi-registry-0.nifi-registry.monolog-nifi.svc.cluster.local$/;"	k
+nifi.registry.web.https.port	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.web.https.port=18443$/;"	k
+nifi.registry.web.jetty.threads	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.web.jetty.threads=200$/;"	k
+nifi.registry.web.jetty.working.directory	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.web.jetty.working.directory=.\/work\/jetty$/;"	k
+nifi.registry.web.should.send.server.version	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.web.should.send.server.version=true$/;"	k
+nifi.registry.web.war.directory	charts/nifi-registry/configs/nifi-registry.properties	/^nifi.registry.web.war.directory=.\/lib$/;"	k
+nifi.remote.contents.cache.expiration	configs/nifi.properties	/^nifi.remote.contents.cache.expiration=30 secs$/;"	k
+nifi.remote.input.host	configs/nifi.properties	/^nifi.remote.input.host=$/;"	k
+nifi.remote.input.http.enabled	configs/nifi.properties	/^nifi.remote.input.http.enabled=true$/;"	k
+nifi.remote.input.http.transaction.ttl	configs/nifi.properties	/^nifi.remote.input.http.transaction.ttl=30 sec$/;"	k
+nifi.remote.input.secure	configs/nifi.properties	/^nifi.remote.input.secure={{.Values.properties.clusterSecure}}$/;"	k
+nifi.remote.input.socket.port	configs/nifi.properties	/^nifi.remote.input.socket.port={{.Values.properties.siteToSite.port}}$/;"	k
+nifi.security.keyPasswd	configs/nifi.properties	/^nifi.security.keyPasswd=$/;"	k
+nifi.security.keyPasswd	configs/nifi.properties	/^nifi.security.keyPasswd={{.Values.auth.SSL.keystorePasswd}}$/;"	k
+nifi.security.keystore	configs/nifi.properties	/^nifi.security.keystore=$/;"	k
+nifi.security.keystore	configs/nifi.properties	/^nifi.security.keystore=\/opt\/nifi\/nifi-current\/conf\/{{.Release.Name}}-nifi-0.{{.Release.Name/;"	k
+nifi.security.keystorePasswd	configs/nifi.properties	/^nifi.security.keystorePasswd=$/;"	k
+nifi.security.keystorePasswd	configs/nifi.properties	/^nifi.security.keystorePasswd={{.Values.auth.SSL.keystorePasswd}}$/;"	k
+nifi.security.keystoreType	configs/nifi.properties	/^nifi.security.keystoreType=$/;"	k
+nifi.security.keystoreType	configs/nifi.properties	/^nifi.security.keystoreType=jks$/;"	k
+nifi.security.needClientAuth	configs/nifi.properties	/^nifi.security.needClientAuth={{.Values.properties.needClientAuth}}$/;"	k
+nifi.security.ocsp.responder.certificate	configs/nifi.properties	/^nifi.security.ocsp.responder.certificate=$/;"	k
+nifi.security.ocsp.responder.url	configs/nifi.properties	/^nifi.security.ocsp.responder.url=$/;"	k
+nifi.security.truststore	configs/nifi.properties	/^nifi.security.truststore=$/;"	k
+nifi.security.truststore	configs/nifi.properties	/^nifi.security.truststore=\/opt\/nifi\/nifi-current\/conf\/{{.Release.Name}}-nifi-0.{{.Release.Na/;"	k
+nifi.security.truststorePasswd	configs/nifi.properties	/^nifi.security.truststorePasswd=$/;"	k
+nifi.security.truststorePasswd	configs/nifi.properties	/^nifi.security.truststorePasswd={{.Values.auth.SSL.truststorePasswd}}$/;"	k
+nifi.security.truststoreType	configs/nifi.properties	/^nifi.security.truststoreType=$/;"	k
+nifi.security.truststoreType	configs/nifi.properties	/^nifi.security.truststoreType=jks$/;"	k
+nifi.security.user.authorizer	configs/nifi.properties	/^nifi.security.user.authorizer=file-provider$/;"	k
+nifi.security.user.authorizer	configs/nifi.properties	/^nifi.security.user.authorizer={{.Values.properties.authorizer}}$/;"	k
+nifi.security.user.knox.audiences	configs/nifi.properties	/^nifi.security.user.knox.audiences=$/;"	k
+nifi.security.user.knox.cookieName	configs/nifi.properties	/^nifi.security.user.knox.cookieName=hadoop-jwt$/;"	k
+nifi.security.user.knox.publicKey	configs/nifi.properties	/^nifi.security.user.knox.publicKey=$/;"	k
+nifi.security.user.knox.url	configs/nifi.properties	/^nifi.security.user.knox.url=$/;"	k
+nifi.security.user.login.identity.provider	configs/nifi.properties	/^nifi.security.user.login.identity.provider=$/;"	k
+nifi.security.user.login.identity.provider	configs/nifi.properties	/^nifi.security.user.login.identity.provider=ldap-provider$/;"	k
+nifi.security.user.oidc.additional.scopes	configs/nifi.properties	/^nifi.security.user.oidc.additional.scopes={{.Values.auth.oidc.additionalScopes}}$/;"	k
+nifi.security.user.oidc.claim.identifying.user	configs/nifi.properties	/^nifi.security.user.oidc.claim.identifying.user={{.Values.auth.oidc.claimIdentifyingUser}}$/;"	k
+nifi.security.user.oidc.client.id	configs/nifi.properties	/^nifi.security.user.oidc.client.id={{.Values.auth.oidc.clientId}}$/;"	k
+nifi.security.user.oidc.client.secret	configs/nifi.properties	/^nifi.security.user.oidc.client.secret={{.Values.auth.oidc.clientSecret}}$/;"	k
+nifi.security.user.oidc.connect.timeout	configs/nifi.properties	/^nifi.security.user.oidc.connect.timeout=5 secs$/;"	k
+nifi.security.user.oidc.discovery.url	configs/nifi.properties	/^nifi.security.user.oidc.discovery.url={{.Values.auth.oidc.discoveryUrl}}$/;"	k
+nifi.security.user.oidc.preferred.jwsalgorithm	configs/nifi.properties	/^nifi.security.user.oidc.preferred.jwsalgorithm=$/;"	k
+nifi.security.user.oidc.read.timeout	configs/nifi.properties	/^nifi.security.user.oidc.read.timeout=5 secs$/;"	k
+nifi.sensitive.props.additional.keys	configs/nifi.properties	/^nifi.sensitive.props.additional.keys=$/;"	k
+nifi.sensitive.props.algorithm	configs/nifi.properties	/^nifi.sensitive.props.algorithm=PBEWITHMD5AND256BITAES-CBC-OPENSSL$/;"	k
+nifi.sensitive.props.key	configs/nifi.properties	/^nifi.sensitive.props.key=abrakadabra$/;"	k
+nifi.sensitive.props.key.protected	configs/nifi.properties	/^nifi.sensitive.props.key.protected=$/;"	k
+nifi.sensitive.props.provider	configs/nifi.properties	/^nifi.sensitive.props.provider=BC$/;"	k
+nifi.state.management.configuration.file	configs/nifi.properties	/^nifi.state.management.configuration.file=.\/conf\/state-management.xml$/;"	k
+nifi.state.management.embedded.zookeeper.properties	configs/nifi.properties	/^nifi.state.management.embedded.zookeeper.properties=.\/conf\/zookeeper.properties$/;"	k
+nifi.state.management.embedded.zookeeper.start	configs/nifi.properties	/^nifi.state.management.embedded.zookeeper.start=false$/;"	k
+nifi.state.management.provider.cluster	configs/nifi.properties	/^nifi.state.management.provider.cluster=zk-provider$/;"	k
+nifi.state.management.provider.local	configs/nifi.properties	/^nifi.state.management.provider.local=local-provider$/;"	k
+nifi.swap.in.period	configs/nifi.properties	/^nifi.swap.in.period=5 sec$/;"	k
+nifi.swap.in.threads	configs/nifi.properties	/^nifi.swap.in.threads=1$/;"	k
+nifi.swap.manager.implementation	configs/nifi.properties	/^nifi.swap.manager.implementation=org.apache.nifi.controller.FileSystemSwapManager$/;"	k
+nifi.swap.out.period	configs/nifi.properties	/^nifi.swap.out.period=5 sec$/;"	k
+nifi.swap.out.threads	configs/nifi.properties	/^nifi.swap.out.threads=4$/;"	k
+nifi.templates.directory	configs/nifi.properties	/^nifi.templates.directory=..\/data\/templates$/;"	k
+nifi.ui.autorefresh.interval	configs/nifi.properties	/^nifi.ui.autorefresh.interval=30 sec$/;"	k
+nifi.ui.banner.text	configs/nifi.properties	/^nifi.ui.banner.text=$/;"	k
+nifi.variable.registry.properties	configs/nifi.properties	/^nifi.variable.registry.properties=$/;"	k
+nifi.web.http.host	configs/nifi.properties	/^nifi.web.http.host=$/;"	k
+nifi.web.http.network.interface.default	configs/nifi.properties	/^nifi.web.http.network.interface.default=$/;"	k
+nifi.web.http.port	configs/nifi.properties	/^nifi.web.http.port=$/;"	k
+nifi.web.http.port	configs/nifi.properties	/^nifi.web.http.port={{.Values.properties.httpPort}}$/;"	k
+nifi.web.https.host	configs/nifi.properties	/^nifi.web.https.host=$/;"	k
+nifi.web.https.network.interface.default	configs/nifi.properties	/^nifi.web.https.network.interface.default=$/;"	k
+nifi.web.https.port	configs/nifi.properties	/^nifi.web.https.port=$/;"	k
+nifi.web.https.port	configs/nifi.properties	/^nifi.web.https.port={{.Values.properties.httpsPort}}$/;"	k
+nifi.web.jetty.threads	configs/nifi.properties	/^nifi.web.jetty.threads=200$/;"	k
+nifi.web.jetty.working.directory	configs/nifi.properties	/^nifi.web.jetty.working.directory=.\/work\/jetty$/;"	k
+nifi.web.proxy.host	configs/nifi.properties	/^nifi.web.proxy.host={{.Values.properties.webProxyHost}}, {{ template "apache-nifi.fullname" . }}/;"	k
+nifi.web.war.directory	configs/nifi.properties	/^nifi.web.war.directory=.\/lib$/;"	k
+nifi.zookeeper.auth.type	configs/nifi.properties	/^nifi.zookeeper.auth.type=$/;"	k
+nifi.zookeeper.connect.string	configs/nifi.properties	/^nifi.zookeeper.connect.string=$/;"	k
+nifi.zookeeper.connect.timeout	configs/nifi.properties	/^nifi.zookeeper.connect.timeout=3 secs$/;"	k
+nifi.zookeeper.kerberos.removeHostFromPrincipal	configs/nifi.properties	/^nifi.zookeeper.kerberos.removeHostFromPrincipal=$/;"	k
+nifi.zookeeper.kerberos.removeRealmFromPrincipal	configs/nifi.properties	/^nifi.zookeeper.kerberos.removeRealmFromPrincipal=$/;"	k
+nifi.zookeeper.root.node	configs/nifi.properties	/^nifi.zookeeper.root.node=\/nifi$/;"	k
+nifi.zookeeper.session.timeout	configs/nifi.properties	/^nifi.zookeeper.session.timeout=3 secs$/;"	k
+nodeSelector	charts/nifi-registry/values.yaml	/^nodeSelector: {}$/;"	s
+nodeSelector	charts/zookeeper/values-production.yaml	/^nodeSelector: {}$/;"	s
+nodeSelector	charts/zookeeper/values.yaml	/^nodeSelector: {}$/;"	s
+nodeSelector	values-oaz-dev.yaml	/^nodeSelector: {}$/;"	s
+nodeSelector	values.yaml	/^nodeSelector: {}$/;"	s
+nodeState	configs/CCProbe.sh	/^nodeState() {$/;"	f
+offloadNode	configs/offloadNode.sh	/^offloadNode() {$/;"	f
+on	.github/workflows/stale.yml	/^on:$/;"	s
+openshift	charts/nifi-ca/values.yaml	/^openshift:$/;"	s
+openshift	charts/nifi-registry/values.yaml	/^openshift:$/;"	s
+openshift	values-oaz-dev.yaml	/^openshift:$/;"	s
+openshift	values.yaml	/^openshift:$/;"	s
+parameters	templates/storageclass.yaml	/^parameters:$/;"	s
+persistence	charts/nifi-ca/values.yaml	/^persistence:$/;"	s
+persistence	charts/nifi-registry/values.yaml	/^persistence:$/;"	s
+persistence	charts/zookeeper/values-production.yaml	/^persistence:$/;"	s
+persistence	charts/zookeeper/values.yaml	/^persistence:$/;"	s
+persistence	values-oaz-dev.yaml	/^persistence:$/;"	s
+persistence	values.yaml	/^persistence:$/;"	s
+podAnnotations	charts/nifi-registry/values.yaml	/^podAnnotations: {}$/;"	s
+podAnnotations	charts/zookeeper/values-production.yaml	/^podAnnotations: {}$/;"	s
+podAnnotations	charts/zookeeper/values.yaml	/^podAnnotations: {}$/;"	s
+podDisruptionBudget	charts/zookeeper/values-production.yaml	/^podDisruptionBudget:$/;"	s
+podDisruptionBudget	charts/zookeeper/values.yaml	/^podDisruptionBudget:$/;"	s
+podLabels	charts/zookeeper/values-production.yaml	/^podLabels: {}$/;"	s
+podLabels	charts/zookeeper/values.yaml	/^podLabels: {}$/;"	s
+podManagementPolicy	charts/zookeeper/values-production.yaml	/^podManagementPolicy: Parallel$/;"	s
+podManagementPolicy	charts/zookeeper/values.yaml	/^podManagementPolicy: Parallel$/;"	s
+podSecurityContext	charts/nifi-registry/values.yaml	/^podSecurityContext:$/;"	s
+popd	configs/generate_user.sh	/^popd () {$/;"	f
+predefinedNodeIdentitiesCount	values-oaz-dev.yaml	/^predefinedNodeIdentitiesCount: 5$/;"	s
+predefinedNodeIdentitiesCount	values.yaml	/^predefinedNodeIdentitiesCount: 5$/;"	s
+priority	charts/nifi-ca/templates/scc.yaml	/^priority: 10$/;"	s
+priority	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^priority: 10$/;"	s
+priority	render/nifi/templates/scc.yaml	/^priority: 10$/;"	s
+priority	templates/scc.yaml	/^priority: 10$/;"	s
+priorityClassName	charts/zookeeper/values-production.yaml	/^priorityClassName: ""$/;"	s
+priorityClassName	charts/zookeeper/values.yaml	/^priorityClassName: ""$/;"	s
+properties	charts/nifi-registry/values.yaml	/^properties:$/;"	s
+properties	values-oaz-dev.yaml	/^properties:$/;"	s
+properties	values.yaml	/^properties:$/;"	s
+provisioner	templates/storageclass.yaml	/^provisioner: {{ .Values.storageProvisioner | quote }}$/;"	s
+proxiedEntity	configs/nifi.properties	/^proxiedEntity={{.Values.auth.ldap.admin}}$/;"	k
+pushd	configs/generate_user.sh	/^pushd () {$/;"	f
+readOnlyRootFilesystem	charts/nifi-ca/templates/scc.yaml	/^readOnlyRootFilesystem: false$/;"	s
+readOnlyRootFilesystem	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^readOnlyRootFilesystem: false$/;"	s
+readOnlyRootFilesystem	render/nifi/templates/scc.yaml	/^readOnlyRootFilesystem: false$/;"	s
+readOnlyRootFilesystem	templates/scc.yaml	/^readOnlyRootFilesystem: false$/;"	s
+readinessProbe	charts/zookeeper/values-production.yaml	/^readinessProbe:$/;"	s
+readinessProbe	charts/zookeeper/values.yaml	/^readinessProbe:$/;"	s
+registry	values-oaz-dev.yaml	/^registry:$/;"	s
+registry	values.yaml	/^registry:$/;"	s
+replicaCount	charts/nifi-ca/values.yaml	/^replicaCount: 1$/;"	s
+replicaCount	charts/nifi-registry/values.yaml	/^replicaCount: 1$/;"	s
+replicaCount	charts/zookeeper/values-production.yaml	/^replicaCount: 3$/;"	s
+replicaCount	charts/zookeeper/values.yaml	/^replicaCount: 1$/;"	s
+replicaCount	values-oaz-dev.yaml	/^replicaCount: 2$/;"	s
+replicaCount	values.yaml	/^replicaCount: 2$/;"	s
+requiredDropCapabilities	charts/nifi-ca/templates/scc.yaml	/^requiredDropCapabilities:$/;"	s
+requiredDropCapabilities	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^requiredDropCapabilities:$/;"	s
+requiredDropCapabilities	render/nifi/templates/scc.yaml	/^requiredDropCapabilities:$/;"	s
+requiredDropCapabilities	templates/scc.yaml	/^requiredDropCapabilities:$/;"	s
+resources	charts/nifi-ca/values.yaml	/^resources:$/;"	s
+resources	charts/nifi-registry/values.yaml	/^resources: {}$/;"	s
+resources	charts/zookeeper/values-production.yaml	/^resources:$/;"	s
+resources	charts/zookeeper/values.yaml	/^resources:$/;"	s
+resources	values-oaz-dev.yaml	/^resources:$/;"	s
+resources	values.yaml	/^resources:$/;"	s
+roleRef	render/nifi/templates/clusterolebinding.yaml	/^roleRef:$/;"	s
+roleRef	templates/clusterolebinding.yaml	/^roleRef:$/;"	s
+rules	render/nifi/templates/clusterrole.yaml	/^rules:$/;"	s
+rules	templates/clusterrole.yaml	/^rules:$/;"	s
+runAsUser	charts/nifi-ca/templates/scc.yaml	/^runAsUser:$/;"	s
+runAsUser	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^runAsUser:$/;"	s
+runAsUser	render/nifi/templates/scc.yaml	/^runAsUser:$/;"	s
+runAsUser	templates/scc.yaml	/^runAsUser:$/;"	s
+s:l	Session.vim	/^let s:l = 38 - ((26 * winheight(0) + 15) \/ 30)$/;"	v
+s:l	Session.vim	/^let s:l = 537 - ((12 * winheight(0) + 12) \/ 25)$/;"	v
+s:so_save	Session.vim	/^let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1$/;"	v
+s:sx	Session.vim	/^let s:sx = expand("<sfile>:p:r")."x.vim"$/;"	v
+s:wipebuf	Session.vim	/^  let s:wipebuf = bufnr('%')$/;"	v
+seLinuxContext	charts/nifi-ca/templates/scc.yaml	/^seLinuxContext:$/;"	s
+seLinuxContext	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^seLinuxContext:$/;"	s
+seLinuxContext	render/nifi/templates/scc.yaml	/^seLinuxContext:$/;"	s
+seLinuxContext	templates/scc.yaml	/^seLinuxContext:$/;"	s
+seconds	charts/nifi-registry/configs/bootstrap.conf	/^graceful.shutdown.seconds=20$/;"	k
+seconds	configs/bootstrap.conf	/^graceful.shutdown.seconds=20$/;"	k
+securityContext	charts/nifi-ca/values.yaml	/^securityContext:$/;"	s
+securityContext	charts/nifi-registry/values.yaml	/^securityContext: {}$/;"	s
+securityContext	charts/zookeeper/values-production.yaml	/^securityContext:$/;"	s
+securityContext	charts/zookeeper/values.yaml	/^securityContext:$/;"	s
+securityContext	values-oaz-dev.yaml	/^securityContext:$/;"	s
+securityContext	values.yaml	/^securityContext:$/;"	s
+server.1	configs/zookeeper.properties	/^server.1=$/;"	k
+service	charts/nifi-ca/values.yaml	/^service:$/;"	s
+service	charts/nifi-registry/values.yaml	/^service:$/;"	s
+service	charts/zookeeper/values-production.yaml	/^service:$/;"	s
+service	charts/zookeeper/values.yaml	/^service:$/;"	s
+service	values-oaz-dev.yaml	/^service:$/;"	s
+service	values.yaml	/^service:$/;"	s
+serviceAccount	charts/nifi-ca/values.yaml	/^serviceAccount:$/;"	s
+serviceAccount	charts/nifi-registry/values.yaml	/^serviceAccount:$/;"	s
+serviceAccount	charts/zookeeper/values-production.yaml	/^serviceAccount:$/;"	s
+serviceAccount	charts/zookeeper/values.yaml	/^serviceAccount:$/;"	s
+sidecar	values-oaz-dev.yaml	/^sidecar:$/;"	s
+sidecar	values.yaml	/^sidecar:$/;"	s
+sources	charts/zookeeper/Chart.yaml	/^sources:$/;"	s
+spec	charts/nifi-ca/templates/deployment.yaml	/^spec:$/;"	s
+spec	charts/nifi-ca/templates/pv.yaml	/^spec:$/;"	s
+spec	charts/nifi-ca/templates/service.yaml	/^spec:$/;"	s
+spec	charts/nifi-ca/templates/volume.yaml	/^spec:$/;"	s
+spec	charts/nifi-registry/templates/ingress.yaml	/^spec:$/;"	s
+spec	charts/nifi-registry/templates/pv.yaml	/^spec:$/;"	s
+spec	charts/nifi-registry/templates/route.yaml	/^spec:$/;"	s
+spec	charts/nifi-registry/templates/service.yaml	/^spec:$/;"	s
+spec	charts/nifi-registry/templates/statefulset.yaml	/^spec:$/;"	s
+spec	charts/nifi-registry/templates/tests/test-connection.yaml	/^spec:$/;"	s
+spec	charts/zookeeper/templates/metrics-svc.yaml	/^spec:$/;"	s
+spec	charts/zookeeper/templates/networkpolicy.yaml	/^spec:$/;"	s
+spec	charts/zookeeper/templates/poddisruptionbudget.yaml	/^spec:$/;"	s
+spec	charts/zookeeper/templates/prometheusrules.yaml	/^spec:$/;"	s
+spec	charts/zookeeper/templates/servicemonitor.yaml	/^spec:$/;"	s
+spec	charts/zookeeper/templates/statefulset.yaml	/^spec:$/;"	s
+spec	charts/zookeeper/templates/svc-headless.yaml	/^spec:$/;"	s
+spec	charts/zookeeper/templates/svc.yaml	/^spec:$/;"	s
+spec	kustomize/apps_v1_deployment_nifi-ca.yaml	/^spec:$/;"	s
+spec	kustomize/apps_v1_statefulset_nifi-registry.yaml	/^spec:$/;"	s
+spec	kustomize/apps_v1_statefulset_nifi-zookeeper.yaml	/^spec:$/;"	s
+spec	kustomize/apps_v1_statefulset_nifi.yaml	/^spec:$/;"	s
+spec	kustomize/policy_v1beta1_poddisruptionbudget_nifi-zookeeper.yaml	/^spec:$/;"	s
+spec	kustomize/v1_persistentvolumeclaim_nifi-ca.yaml	/^spec:$/;"	s
+spec	kustomize/v1_pod_nifi-registry-test-connection.yaml	/^spec:$/;"	s
+spec	kustomize/v1_service_nifi-ca.yaml	/^spec:$/;"	s
+spec	kustomize/v1_service_nifi-headless.yaml	/^spec:$/;"	s
+spec	kustomize/v1_service_nifi-registry.yaml	/^spec:$/;"	s
+spec	kustomize/v1_service_nifi-zookeeper-headless.yaml	/^spec:$/;"	s
+spec	kustomize/v1_service_nifi-zookeeper.yaml	/^spec:$/;"	s
+spec	kustomize/v1_service_nifi.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/ca/templates/deployment.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/ca/templates/service.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/ca/templates/volume.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/registry/templates/route.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/registry/templates/service.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/registry/templates/statefulset.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/registry/templates/tests/test-connection.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/zookeeper/templates/poddisruptionbudget.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/zookeeper/templates/statefulset.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/zookeeper/templates/svc-headless.yaml	/^spec:$/;"	s
+spec	render/nifi/charts/zookeeper/templates/svc.yaml	/^spec:$/;"	s
+spec	render/nifi/templates/networkpolicy.yaml	/^spec:$/;"	s
+spec	render/nifi/templates/route.yaml	/^spec:$/;"	s
+spec	render/nifi/templates/service.yaml	/^spec:$/;"	s
+spec	render/nifi/templates/statefulset.yaml	/^spec:$/;"	s
+spec	templates/ingress.yaml	/^spec:$/;"	s
+spec	templates/networkpolicy.yaml	/^spec:$/;"	s
+spec	templates/pv.yaml	/^spec:$/;"	s
+spec	templates/route.yaml	/^spec:$/;"	s
+spec	templates/service.yaml	/^spec:$/;"	s
+spec	templates/servicemonitor.yaml	/^spec:$/;"	s
+spec	templates/statefulset.yaml	/^spec:$/;"	s
+sts	values-oaz-dev.yaml	/^sts:$/;"	s
+sts	values.yaml	/^sts:$/;"	s
+subjects	render/nifi/templates/clusterolebinding.yaml	/^subjects:$/;"	s
+subjects	templates/clusterolebinding.yaml	/^subjects:$/;"	s
+supplementalGroups	charts/nifi-ca/templates/scc.yaml	/^supplementalGroups:$/;"	s
+supplementalGroups	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^supplementalGroups:$/;"	s
+supplementalGroups	render/nifi/templates/scc.yaml	/^supplementalGroups:$/;"	s
+supplementalGroups	templates/scc.yaml	/^supplementalGroups:$/;"	s
+syncLimit	charts/zookeeper/values-production.yaml	/^syncLimit: 5$/;"	s
+syncLimit	charts/zookeeper/values.yaml	/^syncLimit: 5$/;"	s
+syncLimit	configs/zookeeper.properties	/^syncLimit=5$/;"	k
+terminationGracePeriodSeconds	values-oaz-dev.yaml	/^terminationGracePeriodSeconds: 30$/;"	s
+terminationGracePeriodSeconds	values.yaml	/^terminationGracePeriodSeconds: 60$/;"	s
+tickTime	charts/zookeeper/values-production.yaml	/^tickTime: 2000$/;"	s
+tickTime	charts/zookeeper/values.yaml	/^tickTime: 2000$/;"	s
+tickTime	configs/zookeeper.properties	/^tickTime=2000$/;"	k
+to upgrade	README.md	/^# to upgrade$/;"	c
+token	charts/nifi-ca/values.yaml	/^token: sixteenCharacters$/;"	s
+tolerations	charts/nifi-registry/values.yaml	/^tolerations: []$/;"	s
+tolerations	charts/zookeeper/values-production.yaml	/^tolerations: []$/;"	s
+tolerations	charts/zookeeper/values.yaml	/^tolerations: []$/;"	s
+tolerations	values-oaz-dev.yaml	/^tolerations: []$/;"	s
+tolerations	values.yaml	/^tolerations:$/;"	s
+type	charts/nifi-registry/Chart.yaml	/^type: application$/;"	s
+type	charts/nifi-registry/templates/secret.yaml	/^type: Opaque$/;"	s
+type	charts/zookeeper/templates/secrets.yaml	/^type: Opaque$/;"	s
+type	kustomize/v1_secret_nifi-registry-config.yaml	/^type: Opaque$/;"	s
+type	render/nifi/charts/registry/templates/secret.yaml	/^type: Opaque$/;"	s
+updateStrategy	charts/zookeeper/values-production.yaml	/^updateStrategy: RollingUpdate$/;"	s
+updateStrategy	charts/zookeeper/values.yaml	/^updateStrategy: RollingUpdate$/;"	s
+users	charts/nifi-ca/templates/scc.yaml	/^users:$/;"	s
+users	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^users:$/;"	s
+version	Chart.yaml	/^version: 1.0.4$/;"	s
+version	charts/nifi-ca/Chart.yaml	/^version: 1.0.1$/;"	s
+version	charts/nifi-registry/Chart.yaml	/^version: 1.0.1$/;"	s
+version	charts/zookeeper/Chart.yaml	/^version: 5.23.0$/;"	s
+volumePermissions	charts/zookeeper/values-production.yaml	/^volumePermissions:$/;"	s
+volumePermissions	charts/zookeeper/values.yaml	/^volumePermissions:$/;"	s
+volumes	charts/nifi-ca/templates/scc.yaml	/^volumes:$/;"	s
+volumes	kustomize/security.openshift.io_v1_securitycontextconstraints_nifi-scc.yaml	/^volumes:$/;"	s
+volumes	render/nifi/templates/scc.yaml	/^volumes:$/;"	s
+volumes	templates/scc.yaml	/^volumes:$/;"	s
+zookeeper	values-oaz-dev.yaml	/^zookeeper:$/;"	s
+zookeeper	values.yaml	/^zookeeper:$/;"	s
+{{-	configs/nifi.properties	/^{{- end }}$/;"	k
+{{-	configs/nifi.properties	/^{{- if .Values.properties.files.nifiProperties.nifiQueueBackPressureCount }}$/;"	k
+{{-	configs/nifi.properties	/^{{- if .Values.properties.files.nifiProperties.nifiQueueBackPressureSize }}$/;"	k
+{{else}}	configs/nifi.properties	/^    {{else}}$/;"	k
+{{else}}	configs/nifi.properties	/^{{else}}$/;"	k
+{{end}}	configs/nifi.properties	/^    {{end}}$/;"	k
+{{end}}	configs/nifi.properties	/^{{end}}$/;"	k
+{{if	configs/nifi.properties	/^    {{if .Values.auth.oidc.enabled}}$/;"	k
+{{if	configs/nifi.properties	/^    {{if .Values.properties.clusterSecure}}$/;"	k
+{{if	configs/nifi.properties	/^{{if .Values.auth.ldap.enabled}}$/;"	k
