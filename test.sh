@@ -1,3 +1,0 @@
-bb() {
-  xx=dsadasdas
-}

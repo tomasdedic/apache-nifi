@@ -1,3 +1,4 @@
+#!/bin/bash
 # generate node cert function
 {{- $caserver := include "ca.server" . }}
 {{- $nifiserver := include "apache-nifi.fullname" . }}

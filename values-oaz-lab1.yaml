@@ -56,7 +56,7 @@ sts:
   pod:
     annotations:
       security.alpha.kubernetes.io/sysctls: net.ipv4.ip_local_port_range=10000 65000
-      prometheus.io/scrape: "true"      
+      prometheus.io/scrape: "true"
   serviceAccount:
     create: false
     #  name: nifi
@@ -325,7 +325,7 @@ registry:
   resources:
      limits:
        cpu: 100m
-       memory: 512Mi
+       memory: 1024Mi
      requests:
        cpu: 100m
        memory: 400Mi

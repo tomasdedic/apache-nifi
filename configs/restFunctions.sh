@@ -1,4 +1,5 @@
 #!/bin/bash
+#source and use function for REST api query
 adminCrt=${NIFI_HOME}/config-data/certs/admin/crtAdmin.pem
 adminKey=${NIFI_HOME}/config-data/certs/admin/keyAdmin.pem
 hostNode="$(hostname -f)"
